@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada · Centro para Mudanças Exponenciais (CMe)</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#F4522A">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/img/favicon.png">
+  <style>
+    @font-face {
+      font-family: "JUST Sans";
+      src: url("/assets/fonts/just-sans-400.woff2") format("woff2");
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "JUST Sans";
+      src: url("/assets/fonts/just-sans-600.woff2") format("woff2");
+      font-weight: 600; font-style: normal; font-display: swap;
+    }
+    :root {
+      --coral: #F4522A;
+      --coral-d1: #C23E1F;
+      --black: #1A1A1A;
+      --text-2: #4A4A4A;
+      --bg: #FAF8F5;
+      --font: "JUST Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh; display: grid; place-items: center; padding: 24px 16px;
+      background: var(--bg); color: var(--black); font-family: var(--font); line-height: 1.5;
+    }
+    main { max-width: 32rem; display: grid; gap: 24px; }
+    img { max-width: 100%; height: auto; }
+    h1 { font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 600; line-height: 1.15; text-wrap: balance; }
+    p { color: var(--text-2); }
+    a.btn {
+      justify-self: start; display: inline-flex; align-items: center; min-height: 44px; padding: 0 24px;
+      border-radius: 999px; background: var(--coral-d1); color: #fff; font-weight: 600; text-decoration: none;
+      transition: background-color .2s;
+    }
+    a.btn:hover { background: var(--coral); }
+    a.btn:focus-visible { outline: 3px solid var(--black); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { a.btn { transition: none; } }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/assets/img/logo-centro-para-mudancas-exponenciais.webp" alt="Centro para Mudanças Exponenciais" width="240" height="44">
+    <h1>Esta página não existe.</h1>
+    <p>O endereço pode ter mudado ou ter sido digitado com algum erro. A página do CMe continua no mesmo lugar.</p>
+    <a class="btn" href="/index-cme">Ir para a página do CMe</a>
+  </main>
+</body>
+</html>

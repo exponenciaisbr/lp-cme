@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Centro para Mudanças Exponenciais (CMe)</title>
+  <meta name="description" content="Existimos para ampliar a escala, a velocidade e a sustentação de transformações sociais que emergem da sociedade brasileira. O CMe é o hub brasileiro do Centre for Exponential Change (C4EC).">
+  <meta name="theme-color" content="#F4522A">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Centro para Mudanças Exponenciais (CMe)">
+  <meta property="og:title" content="Centro para Mudanças Exponenciais (CMe)">
+  <meta property="og:description" content="Existimos para ampliar a escala, a velocidade e a sustentação de transformações sociais que emergem da sociedade brasileira.">
+  <meta property="og:url" content="https://exponenciais.org.br/index-cme">
+  <!-- PENDENTE: og-image.jpg (1200x630) vai em public/og-image.jpg e é servida em /og-image.jpg -->
+  <meta property="og:image" content="https://exponenciais.org.br/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Centro para Mudanças Exponenciais">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Centro para Mudanças Exponenciais (CMe)">
+  <meta name="twitter:description" content="Existimos para ampliar a escala, a velocidade e a sustentação de transformações sociais que emergem da sociedade brasileira.">
+  <meta name="twitter:image" content="https://exponenciais.org.br/og-image.jpg">
+
+  <!-- Favicon: monograma oficial do CMe -->
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/img/favicon.png">
+
+  <style>
+    /* =========================================================
+       TIPOGRAFIA — JUST Sans, a fonte oficial da marca
+       Arquivos .woff2 embutidos: a página não depende de nenhum
+       servidor de fontes externo e renderiza igual off-line.
+       ========================================================= */
+    @font-face {
+      font-family: "JUST Sans";
+      src: url("/assets/fonts/just-sans-300.woff2") format("woff2");
+      font-weight: 300; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "JUST Sans";
+      src: url("/assets/fonts/just-sans-400.woff2") format("woff2");
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "JUST Sans";
+      src: url("/assets/fonts/just-sans-500.woff2") format("woff2");
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "JUST Sans";
+      src: url("/assets/fonts/just-sans-600.woff2") format("woff2");
+      font-weight: 600; font-style: normal; font-display: swap;
+    }
+
+    /* =========================================================
+       DESIGN TOKENS — Centro para Mudanças Exponenciais (CMe)
+       ========================================================= */
+    :root {
+      /* Cores primárias do logotipo */
+      --coral: #F4522A;
+      --teal: #3EC8B4;
+      --black: #1A1A1A;
+      --white: #FFFFFF;
+      --gray: #8C8C8C;
+
+      /* Tints coral */
+      --coral-75: #F7754E;
+      --coral-50: #F9A994;
+      --coral-25: #FCD4C9;
+      --coral-10: #FEEDE9;
+      /* Sombras coral */
+      --coral-d1: #C23E1F;
+      --coral-d2: #8C2D16;
+      --coral-d3: #5C1D0D;
+      --coral-d4: #1A0804;
+
+      /* Tints teal */
+      --teal-75: #70D6C7;
+      --teal-50: #9EE4D9;
+      --teal-25: #CEF1EC;
+      --teal-10: #EBF9F7;
+      /* Sombras teal */
+      --teal-d1: #2D9688;
+      --teal-d2: #1F6B60;
+      --teal-d3: #144540;
+      --teal-d4: #0A2320;
+
+      /* Paleta de gradientes (sólidas) */
+      --purple: #7B2D8B;
+      --cyan: #4DC8E8;
+      --yellow: #F5D000;
+
+      /* Superfícies e texto */
+      --bg: #FAF8F5;           /* creme suave, como na apresentação */
+      --surface: var(--white);
+      --text: var(--black);
+      --text-2: #4A4A4A;       /* corpo de texto (AA sobre branco/creme) */
+      --text-3: #6B6B6B;       /* legendas (AA sobre branco/creme) */
+      --line: #E6E1DB;
+
+      /* Tipografia */
+      --font: "JUST Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+      /* Espaçamento (grade de 8px) */
+      --s-1: 8px; --s-2: 16px; --s-3: 24px; --s-4: 32px; --s-5: 40px;
+      --s-6: 48px; --s-8: 64px; --s-10: 80px; --s-12: 96px;
+
+      /* Ritmo vertical das seções — compacto, para que um módulo padrão caiba em uma tela */
+      --sec-y: 48px;
+      --head-gap: 32px;
+
+      --container: 1120px;
+      --radius: 6px;
+      --radius-lg: 12px;
+    }
+    @media (min-width: 768px) { :root { --sec-y: 60px; --head-gap: 36px; } }
+    @media (min-width: 1024px) { :root { --sec-y: 72px; --head-gap: 40px; } }
+
+    /* ---------- Reset leve ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 84px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--bg);
+    }
+    img, svg, iframe { max-width: 100%; display: block; }
+    h1, h2, h3, h4, p, ul { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    a { color: var(--coral-d1); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--coral-d2); }
+    strong, b { font-weight: 600; }
+
+    :focus-visible {
+      outline: 3px solid var(--teal-d1);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .skip-link {
+      position: absolute; left: var(--s-2); top: -100px;
+      background: var(--black); color: var(--white);
+      padding: 12px 18px; border-radius: var(--radius); z-index: 1000;
+      font-weight: 500; text-decoration: none;
+    }
+    .skip-link:focus { top: var(--s-2); }
+
+    .visually-hidden {
+      position: absolute !important; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* ---------- Layout ---------- */
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--s-3); }
+    @media (min-width: 768px) { .container { padding: 0 var(--s-5); } }
+
+    section { padding: var(--sec-y) 0; }
+
+    /* ---------- Tipografia ---------- */
+    /* Quebra de linha equilibrada: evita títulos com uma palavra órfã na última linha */
+    h1, h2, h3, h4 { text-wrap: balance; }
+    p, li, blockquote { text-wrap: pretty; }
+
+    .eyebrow {
+      display: block;
+      font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--coral-d1); margin-bottom: var(--s-2);
+    }
+
+    h1 { font-weight: 600; font-size: clamp(2.25rem, 5.6vw, 3.75rem); line-height: 1.1; letter-spacing: -0.01em; }
+    h2 { font-weight: 600; font-size: clamp(1.6rem, 3.4vw, 2.25rem); line-height: 1.12; letter-spacing: -0.01em; color: var(--text); }
+    h3 { font-weight: 600; font-size: 1.3125rem; line-height: 1.2; color: var(--text); }
+    h4 { font-weight: 600; font-size: 1.0625rem; line-height: 1.2; }
+
+    .lead { font-size: 1.0625rem; line-height: 1.55; color: var(--text-2); }
+    .lead + .lead, p + p { margin-top: var(--s-2); }
+    .section-head { max-width: 46ch; margin-bottom: var(--head-gap); }
+    .section-head--wide { max-width: 64ch; }
+    .section-head h2 + p, .section-head h2 + .lead { margin-top: var(--s-2); }
+
+    /* ---------- Botões ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 52px; padding: 14px 28px;
+      font: inherit; font-weight: 600; font-size: 1.0625rem; line-height: 1;
+      border-radius: 999px; text-decoration: none; cursor: pointer;
+      transition: background-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .btn-primary { background: var(--coral-d1); color: var(--white); }
+    .btn-primary:hover { background: var(--coral-d2); color: var(--white); transform: translateY(-1px); }
+    .btn-light { background: var(--white); color: var(--coral-d1); }
+    .btn-light:hover { background: var(--coral-10); color: var(--coral-d2); }
+    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,.8); }
+    .btn-outline:hover { background: rgba(255,255,255,.12); color: var(--white); }
+    .btn svg { width: 20px; height: 20px; }
+
+    /* ---------- Placeholders (materiais ainda a enviar) ---------- */
+    .ph {
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      border: 1.5px dashed var(--coral-50); background: var(--coral-10);
+      color: var(--coral-d2); border-radius: var(--radius-lg);
+      font-size: .8125rem; font-weight: 500; line-height: 1.35; padding: var(--s-2);
+    }
+    .ph--teal { border-color: var(--teal-50); background: var(--teal-10); color: var(--teal-d2); }
+    .ph--neutral { border-color: #D8D2CA; background: #F3F0EB; color: var(--text-3); }
+    .ph--photo { aspect-ratio: 4 / 3; }
+    .ph--avatar { width: 64px; height: 64px; border-radius: 50%; padding: 0; font-size: .6875rem; flex: none; }
+
+    /* ---------- Curva exponencial (ativo gráfico da marca) ---------- */
+    .curve { width: 100%; height: auto; }
+
+    /* =========================================================
+       CABEÇALHO
+       ========================================================= */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,248,245,.92);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; gap: var(--s-3);
+      min-height: 68px;
+    }
+    /* padding garante área de toque de 44px+ mesmo com o logotipo baixo */
+    .brand { display: inline-flex; align-items: center; text-decoration: none; padding: 8px 0; flex: none; }
+    .brand img { height: 30px; width: auto; flex: none; }
+    @media (min-width: 1240px) { .brand img { height: 34px; } }
+    /* o cabeçalho ganha 80px a mais que a coluna de conteúdo para o menu caber com folga */
+    .site-header .container { max-width: 1200px; }
+
+    .nav-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border: 0; background: transparent; cursor: pointer;
+      border-radius: var(--radius); color: var(--text);
+    }
+    .nav-toggle svg { width: 26px; height: 26px; }
+    .nav-toggle .icon-close { display: none; }
+    .nav-toggle[aria-expanded="true"] .icon-open { display: none; }
+    .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+    .nav-list {
+      display: none; position: absolute; left: 0; right: 0; top: 100%;
+      background: var(--bg); border-bottom: 1px solid var(--line);
+      padding: var(--s-2) var(--s-3) var(--s-3);
+      flex-direction: column; gap: 4px;
+    }
+    .nav-list.is-open { display: flex; }
+    .nav-list a {
+      display: flex; align-items: center; min-height: 48px; padding: 8px 12px;
+      color: var(--text); text-decoration: none; font-weight: 500; font-size: 1rem;
+      border-radius: var(--radius);
+    }
+    .nav-list a:hover { background: var(--coral-10); color: var(--coral-d1); }
+    .nav-list .nav-cta a { color: var(--coral-d1); font-weight: 600; }
+
+    /* Menu horizontal só quando cabe: com JUST Sans os seis links somam ~1090px.
+       Abaixo de 1240px fica o menu de três traços. */
+    @media (min-width: 1240px) {
+      .nav-toggle { display: none; }
+      .nav-list {
+        display: flex; position: static; flex-direction: row; align-items: center;
+        gap: 0; padding: 0; border: 0; background: transparent;
+      }
+      .nav-list a { font-size: .875rem; padding: 8px 10px; min-height: 44px; white-space: nowrap; }
+      .nav-list .nav-cta a { border: 1.5px solid var(--coral); border-radius: 999px; padding: 8px 16px; margin-left: 6px; }
+      .nav-list .nav-cta a:hover { background: var(--coral-d1); color: var(--white); border-color: var(--coral-d1); }
+    }
+
+    /* =========================================================
+       MÓDULO 1 — HERO (visual do primeiro slide da apresentação)
+       ========================================================= */
+    .hero {
+      position: relative; overflow: hidden; color: var(--white);
+      padding: var(--s-10) 0 var(--s-8);
+      background-color: #3B2440;
+      background-image:
+        radial-gradient(ellipse 60% 55% at 12% 0%,   #4DC8E8 0%, rgba(77,200,232,0) 60%),
+        radial-gradient(ellipse 70% 60% at 70% 5%,   #F9A994 0%, rgba(249,169,148,0) 65%),
+        radial-gradient(ellipse 55% 50% at 95% 30%,  #F4522A 0%, rgba(244,82,42,0) 60%),
+        radial-gradient(ellipse 80% 55% at 30% 45%,  #F7754E 0%, rgba(247,117,78,0) 60%),
+        radial-gradient(ellipse 90% 60% at 50% 100%, #1A0804 0%, rgba(26,8,4,0) 70%),
+        linear-gradient(180deg, #6F7DC9 0%, #E8785C 35%, #7B2D8B 75%, #1A0804 100%);
+    }
+    /* véu inferior para garantir contraste AA do texto sobre o gradiente */
+    .hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(26,8,4,0) 25%, rgba(26,8,4,.62) 65%, rgba(26,8,4,.78) 100%);
+      pointer-events: none;
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero-inner { max-width: 900px; padding-top: var(--s-6); }
+    .hero .eyebrow { color: var(--white); }
+    .hero h1 { color: var(--white); text-shadow: 0 2px 24px rgba(26,8,4,.25); }
+    .hero .tagline {
+      margin-top: var(--s-3); max-width: 700px;
+      font-size: clamp(1.1875rem, 2.4vw, 1.625rem); line-height: 1.3; font-weight: 300;
+      color: var(--white);
+    }
+    .hero .tagline strong { font-weight: 600; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-5); }
+    @media (min-width: 768px) { .hero { padding: var(--s-12) 0 var(--s-10); min-height: 74vh; display: flex; align-items: center; } }
+
+    /* =========================================================
+       MÓDULO 2 — QUEM SOMOS
+       ========================================================= */
+    .boxes { display: grid; gap: var(--s-3); }
+    @media (min-width: 768px) { .boxes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .box {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+      padding: var(--s-4); position: relative; overflow: hidden;
+    }
+    .box::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--coral); }
+    .box--teal::before { background: var(--teal); }
+    /* Caixa de contenção fixa: normaliza logos de proporções diferentes e alinha os títulos */
+    .box-logo { width: 200px; height: 54px; object-fit: contain; object-position: left center; margin-bottom: var(--s-3); }
+    .box h3 a { color: var(--text); text-decoration: none; display: inline-block; padding: 10px 0; margin: -10px 0; }
+    .box h3 a:hover { color: var(--coral-d1); text-decoration: underline; }
+    .box h3 a::after { content: " ↗"; font-weight: 400; color: var(--teal-d1); }
+    .box p { margin-top: var(--s-2); color: var(--text-2); }
+
+    /* =========================================================
+       MÓDULO 3 — POR QUE AGIR AGORA (texto + imagem à direita)
+       ========================================================= */
+    .split { display: grid; gap: var(--s-5); align-items: center; }
+    @media (min-width: 900px) { .split { grid-template-columns: 1.1fr 1fr; gap: var(--s-8); } .split--img-left > .split-media { order: -1; } }
+    .split-text { max-width: 52ch; }
+    .split-media .ph--photo { width: 100%; }
+
+    .section--coral-tint { background: var(--coral-10); }
+    .section--teal { background: var(--teal); color: var(--black); }
+    .section--teal h2, .section--teal .lead { color: var(--black); }
+    .section--teal .eyebrow { color: var(--teal-d3); }
+
+    /* =========================================================
+       MÓDULO 4 — REDE DO SUL GLOBAL + VÍDEO
+       ========================================================= */
+    .video-box {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius-lg); overflow: hidden;
+    }
+    .video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: var(--black); }
+    .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-play {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      padding: 0; border: 0; background: var(--black); cursor: pointer; display: block;
+    }
+    .video-play img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-play-icon {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 72px; height: 51px; display: flex; align-items: center; justify-content: center;
+      filter: drop-shadow(0 2px 10px rgba(26,8,4,.45));
+      transition: transform .18s ease;
+    }
+    .video-play-icon svg { width: 100%; height: 100%; }
+    .video-play:hover .video-play-icon, .video-play:focus-visible .video-play-icon { transform: translate(-50%, -50%) scale(1.08); }
+    .video-caption { padding: var(--s-3) var(--s-4); color: var(--text-2); }
+    .video-caption h3 { font-size: 1.0625rem; font-weight: 500; line-height: 1.4; }
+    @media (min-width: 900px) {
+      .video-box { display: grid; grid-template-columns: 1.5fr 1fr; align-items: center; }
+      .video-frame { aspect-ratio: auto; height: 100%; min-height: 300px; }
+      .video-caption { padding: var(--s-5); }
+    }
+
+    /* =========================================================
+       MÓDULO 5 — PENSAMENTO SOCIETAL
+       ========================================================= */
+    .st-grid { display: grid; gap: var(--s-3); }
+    .card {
+      background: var(--surface); border-radius: var(--radius-lg); padding: var(--s-4);
+      border: 1px solid var(--line);
+    }
+    .card-label {
+      display: block; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--coral-d1); margin-bottom: var(--s-2);
+    }
+    .card--coral { background: var(--coral-10); border-color: var(--coral-25); }
+    .card--purple { background: #F1E6F3; border-color: #DCC7E0; }
+    .card--purple .card-label { color: #6A2578; }
+
+    /* Valores centrais: ícones do slide 29 da apresentação */
+    .valores { display: grid; gap: var(--s-3); margin-top: var(--s-4); }
+    @media (min-width: 560px) { .valores { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-4); } }
+    .valores li { display: flex; align-items: center; gap: var(--s-2); }
+    @media (min-width: 560px) { .valores li { flex-direction: column; align-items: flex-start; gap: var(--s-2); } }
+    .valores .valor-ico { width: 84px; height: 84px; flex: none; display: block; }
+    .valores .valor-ico svg { width: 100%; height: 100%; display: block; }
+    .valores p { font-size: 1.25rem; font-weight: 600; line-height: 1.15; color: var(--text); }
+    .valores p span { display: block; font-size: .9375rem; font-weight: 300; color: var(--text-2); }
+    .card--teal { background: var(--teal-10); border-color: var(--teal-25); }
+    .card--teal .card-label { color: var(--teal-d2); }
+    .card p { color: var(--text-2); }
+    .card h3 + p { margin-top: var(--s-2); }
+
+    .mm-cols { display: grid; gap: var(--s-4); }
+    @media (min-width: 768px) { .mm-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5); } }
+    .mm-col h3 { font-size: 1.1875rem; }
+    .mm-col .ph--photo { margin: var(--s-3) 0; aspect-ratio: 16 / 10; }
+    .mm-foto { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius-lg); margin: var(--s-3) 0; display: block; }
+
+    /* Modelo Societal: diagrama à esquerda, as três camadas à direita (como no slide 31) */
+    .sm-grid { display: grid; gap: var(--s-4); align-items: center; margin-top: var(--s-4); }
+    @media (min-width: 900px) { .sm-grid { grid-template-columns: minmax(220px, 300px) 1fr; gap: var(--s-6); } }
+    .sm-diagrama { width: 100%; max-width: 250px; justify-self: center; }
+    @media (min-width: 900px) { .sm-diagrama { max-width: 300px; } }
+    .sm-diagrama svg { width: 100%; height: auto; display: block; }
+    .sm-camadas li { display: grid; gap: var(--s-1) var(--s-3); padding: var(--s-3) 0; border-top: 1px dashed #A9D4CD; }
+    .sm-camadas li:last-child { border-bottom: 1px dashed #A9D4CD; }
+    @media (min-width: 640px) { .sm-camadas li { grid-template-columns: 1fr minmax(170px, 210px); align-items: center; } }
+    .sm-camadas h3 { font-size: .8125rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; line-height: 1.3; }
+    .card .sm-camadas p { margin-top: 0; font-size: .9375rem; color: var(--text-2); }
+    .sm-camadas p strong { color: var(--text); }
+    .sm-acao { display: flex; align-items: center; min-height: 48px; padding: 10px 14px; border-radius: 4px; font-weight: 600; font-size: .9375rem; line-height: 1.25; }
+    @media (min-width: 640px) { .sm-camadas h3, .card .sm-camadas p { grid-column: 1; } .sm-acao { grid-column: 2; grid-row: 1 / span 2; } }
+    .sm-camada--redes h3 { color: #6A2FA0; }
+    .sm-camada--redes .sm-acao { background: #6B2FA0; color: #FFFFFF; }
+    .sm-camada--cocriacao h3 { color: #8A6100; }
+    .sm-camada--cocriacao .sm-acao { background: #FFC845; color: var(--black); }
+    .sm-camada--infra h3 { color: #0E6C8C; }
+    .sm-camada--infra .sm-acao { background: #4DD0EE; color: var(--black); }
+    .more-link { display: inline-flex; align-items: center; gap: 8px; margin-top: var(--s-3); font-weight: 600; min-height: 44px; }
+
+    .books-intro { margin-top: var(--s-2); color: var(--text-2); max-width: 68ch; }
+    .books { display: grid; gap: var(--s-4); margin-top: var(--s-4); }
+    @media (min-width: 640px) { .books { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .book { display: flex; flex-direction: column; gap: var(--s-2); }
+    .book-cover {
+      width: 100%; max-width: 200px; height: auto; border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(26,8,4,.14);
+    }
+    .book h4 { font-size: 1.0625rem; }
+    .book p { color: var(--text-2); font-size: .9375rem; }
+    .book a.dl {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: auto;
+      font-weight: 600; font-size: .9375rem; min-height: 44px;
+    }
+    .book a.dl svg { width: 18px; height: 18px; flex: none; }
+
+    /* =========================================================
+       MÓDULO 6 — JORNADAS (lista de ofertas)
+       ========================================================= */
+    .offers { border-top: 1px solid var(--line); }
+    .offers li {
+      display: grid; grid-template-columns: 44px 1fr; gap: var(--s-2); align-items: start;
+      padding: var(--s-2) 0; border-bottom: 1px solid var(--line);
+    }
+    @media (min-width: 640px) { .offers li { gap: var(--s-3); align-items: center; padding: var(--s-3) 0; } }
+    .offer-icon {
+      width: 44px; height: 44px; border-radius: 50%; background: var(--coral-10);
+      display: flex; align-items: center; justify-content: center; flex: none;
+    }
+    .offer-icon svg { width: 22px; height: 22px; stroke-width: 1.25; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .offers p { color: var(--text-2); }
+    .offers p strong { color: var(--coral-d1); }
+
+    /* =========================================================
+       MÓDULO 7 — ORGANIZAÇÕES BRASILEIRAS EM JORNADA
+       ========================================================= */
+    .partners { display: grid; gap: var(--s-3); }
+    @media (min-width: 640px) { .partners { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 1024px) { .partners { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .partner {
+      background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--line);
+      padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-3);
+      border-left: 6px solid var(--teal-d3);
+    }
+    .partner-logo {
+      width: 190px; height: 64px; object-fit: contain; object-position: left center;
+      margin-bottom: var(--s-1);
+    }
+    .partner h3 { font-size: 1.0625rem; }
+    .partner p { color: var(--text-2); font-size: .9375rem; }
+    /* parágrafos seguidos ficam mais próximos entre si do que dos demais blocos do card */
+    .partner p + p { margin-top: calc(var(--s-2) - var(--s-3)); }
+    /* empurra o link para a base, alinhando-o entre cards de alturas diferentes */
+    .partner a.more { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: .9375rem; min-height: 44px; margin-top: auto; }
+    .partner a.more svg { width: 18px; height: 18px; flex: none; }
+
+    /* =========================================================
+       MÓDULO 8 — PARCEIROS GLOBAIS (carrossel de logos)
+       ========================================================= */
+    .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .marquee-track { display: flex; gap: var(--s-3); width: max-content; animation: marquee 75s linear infinite; padding-right: var(--s-3); }
+    .marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }
+    .marquee-track .ph { width: 160px; height: 84px; flex: none; }
+    /* Cartão de logo: caixa de contenção fixa para normalizar proporções muito diferentes */
+    .logo-tile {
+      flex: none; width: 184px; height: 96px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg);
+    }
+    .logo-tile img { width: 144px; height: 60px; object-fit: contain; }
+    /* Catálise enviada na versão branca com símbolo azul-marinho: o violeta médio mantém os dois legíveis */
+    .logo-tile--escuro { background: #7C6CF0; border-color: #7C6CF0; }
+    /* Wasan Network enviado em creme, para fundo escuro: mesmo verde-sálvia do slide 14 da apresentação */
+    .logo-tile--wasan { background: #526E4D; border-color: #526E4D; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; padding: 0 var(--s-3); }
+      .marquee { mask-image: none; -webkit-mask-image: none; }
+    }
+
+    /* =========================================================
+       MÓDULO 9 — DEPOIMENTOS
+       ========================================================= */
+    .testimonials { display: grid; gap: var(--s-3); max-width: 1000px; }
+    @media (min-width: 768px) { .testimonials { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .testimonial {
+      background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--line);
+      padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-3);
+    }
+    .testimonial > * { min-width: 0; }
+    .testimonial { border-top: 4px solid var(--coral); }
+    .testimonial blockquote { margin: 0; color: var(--text); font-size: 1.125rem; line-height: 1.5; font-weight: 400; }
+    .depo-foto { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex: none; }
+    .testimonial footer { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .testimonial .who { font-size: .9375rem; line-height: 1.3; }
+    .testimonial .who .name { font-weight: 600; display: block; }
+    .testimonial .who .role { color: var(--text-3); display: block; }
+
+    /* =========================================================
+       EQUIPE
+       ========================================================= */
+    .equipe { display: grid; gap: var(--s-5) var(--s-3); grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 820px; }
+    @media (min-width: 640px) { .equipe { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-4); } }
+    .equipe li { text-align: center; }
+    .equipe img { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; margin: 0 auto var(--s-2); display: block; }
+    .equipe-nome { font-weight: 600; line-height: 1.25; }
+    .equipe-cargo { color: var(--text-2); font-size: .9375rem; line-height: 1.3; margin-top: 4px; }
+
+    /* =========================================================
+       MÓDULO 10 — JUNTE-SE AO CME
+       ========================================================= */
+    .join {
+      position: relative; overflow: hidden; color: var(--white);
+      background-color: var(--coral);
+      background-image:
+        radial-gradient(ellipse 60% 70% at 100% 0%, #7B2D8B 0%, rgba(123,45,139,0) 60%),
+        radial-gradient(ellipse 50% 60% at 0% 100%, #F5D000 0%, rgba(245,208,0,0) 55%),
+        radial-gradient(ellipse 60% 60% at 80% 100%, #3EC8B4 0%, rgba(62,200,180,0) 55%),
+        linear-gradient(135deg, #F4522A 0%, #C23E1F 100%);
+    }
+    .join::after { content: ""; position: absolute; inset: 0; background: rgba(26,8,4,.28); pointer-events: none; }
+    .join .container { position: relative; z-index: 1; }
+    .join-inner { max-width: 68ch; }
+    .join h2, .join h3, .join p { color: var(--white); }
+    .join .eyebrow { color: var(--white); }
+    .join .lead { color: rgba(255,255,255,.92); margin-top: var(--s-2); }
+    .join-ways { display: grid; gap: var(--s-4); margin-top: var(--s-5); }
+    @media (min-width: 768px) { .join-ways { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-6); } }
+    .join-ways li { border-top: 2px solid rgba(255,255,255,.55); padding-top: var(--s-2); }
+    .join-ways h3 { font-size: 1.25rem; }
+    .join-ways p { margin-top: var(--s-2); color: rgba(255,255,255,.92); }
+    .join-actions { margin-top: var(--s-5); display: flex; flex-wrap: wrap; gap: var(--s-2); }
+    .join .btn-light { color: var(--coral-d2); }
+
+    /* =========================================================
+       MÓDULO 11 — RODAPÉ
+       ========================================================= */
+    .site-footer { background: var(--white); border-top: 1px solid var(--line); padding: var(--s-6) 0 var(--s-4); }
+    /* Marcas na primeira linha; contato e links lado a lado abaixo */
+    .footer-grid { display: grid; gap: var(--s-5); }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: auto auto; justify-content: start; column-gap: var(--s-12); }
+      .footer-marcas { grid-column: 1 / -1; }
+      /* a coluna de links não tem título: desce o equivalente ao título de "Contato" para alinhar as listas */
+      .footer-col-sem-titulo { padding-top: calc(.8125rem * 1.2 + var(--s-1)); }
+    }
+    .footer-marcas { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-5); }
+    .footer-brand img { height: 44px; width: auto; }
+    .footer-cofundador { display: flex; flex-direction: column; gap: 6px; padding-left: var(--s-5); border-left: 1px solid var(--line); }
+    .footer-cofundador span { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); }
+    .footer-cofundador img { height: 30px; width: auto; }
+    @media (max-width: 519px) { .footer-cofundador { padding-left: 0; border-left: 0; } }
+    .site-footer h4 { font-size: .8125rem; letter-spacing: .16em; text-transform: uppercase; color: var(--coral-d1); margin-bottom: var(--s-1); }
+    .footer-list a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--text); text-decoration: none; font-weight: 400; }
+    .footer-list a:hover { color: var(--coral-d1); text-decoration: underline; }
+    .footer-list a svg { width: 20px; height: 20px; flex: none; }
+    .footer-bottom {
+      margin-top: var(--s-5); padding-top: var(--s-3); border-top: 1px solid var(--line);
+      display: flex; flex-wrap: wrap; gap: var(--s-2); justify-content: space-between; align-items: center;
+      color: var(--text-3); font-size: .875rem;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <!-- ======================= CABEÇALHO ======================= -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Navegação principal">
+        <a class="brand" href="#inicio" aria-label="Centro para Mudanças Exponenciais — início">
+          <img src="/assets/img/logo-centro-para-mudancas-exponenciais.webp" alt="Centro para Mudanças Exponenciais" width="400" height="74">
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+
+        <ul class="nav-list" id="menu">
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#por-que-agora">Por que agir agora?</a></li>
+          <li><a href="#pensamento-societal">Pensamento Societal</a></li>
+          <li><a href="#jornadas">Jornadas exponenciais</a></li>
+          <li><a href="#parceiros">Nossos parceiros</a></li>
+          <li class="nav-cta"><a href="#apoie">Apoie o CMe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ======================= MÓDULO 1 — HERO ======================= -->
+    <section class="hero" id="inicio" aria-labelledby="titulo-hero">
+      <div class="container">
+        <div class="hero-inner">
+          <h1 id="titulo-hero">Centro para Mudanças Exponenciais (CMe)</h1>
+          <p class="tagline">Existimos para ampliar a <strong>escala</strong>, a <strong>velocidade</strong> e a <strong>sustentação</strong> de transformações sociais que emergem da sociedade brasileira.</p>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="#quem-somos">Conheça o CMe</a>
+            <a class="btn btn-outline" href="#apoie">Apoie o CMe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 2 — QUEM SOMOS ======================= -->
+    <section id="quem-somos" aria-labelledby="titulo-quem-somos">
+      <div class="container">
+        <div class="section-head section-head--wide">
+          <h2 id="titulo-quem-somos">Quem somos</h2>
+          <p class="lead">Somos o hub brasileiro do Centre for Exponential Change (C4EC), rede global de suporte a lideranças que orquestram mudanças sistêmicas, cofundada por cinco filantropias de diferentes continentes e presente na Índia, África do Sul e Brasil. Aqui, o CMe é incubado pelo Instituto Beja.</p>
+        </div>
+
+        <div class="boxes">
+          <!-- BOX 1 -->
+          <article class="box">
+            <img class="box-logo" src="/assets/img/logo-centre-for-exponential-change.webp" alt="Centre for Exponential Change" width="340" height="126">
+            <h3><a href="https://centreforexponentialchange.org/" target="_blank" rel="noopener">Centre for Exponential Change (C4EC)</a></h3>
+            <p>É um hub de ação global que reimagina como resolvemos os desafios sociais mais urgentes do mundo. Reúne diversos agentes que apoiam a jornada de Orquestradores de Sistemas, ajudando-os a solucionar problemas sociais mais rápido e em maior escala.</p>
+          </article>
+
+          <!-- BOX 2 -->
+          <article class="box box--teal">
+            <img class="box-logo" src="/assets/img/logo-instituto-beja.webp" alt="Instituto Beja" width="400" height="91">
+            <h3><a href="https://institutobeja.org/" target="_blank" rel="noopener">Instituto Beja</a></h3>
+            <p>Tem como missão promover o impacto positivo no campo da filantropia, fomentando inovação, colaboração, eficácia e o engajamento da sociedade civil, do setor privado e do governo na resolução de problemas sistêmicos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 3 — POR QUE AGIR AGORA? ======================= -->
+    <section class="section--coral-tint" id="por-que-agora" aria-labelledby="titulo-por-que">
+      <div class="container">
+        <div class="split">
+          <div class="split-text">
+            <p class="eyebrow">Por que existimos</p>
+            <h2 id="titulo-por-que">Por que agir agora?</h2>
+            <p class="lead" style="margin-top: var(--s-2)">Vivemos um momento em que os desafios da humanidade, cada vez mais complexos, se combinam e se aceleram mutuamente. Enquanto isso, a maior parte das soluções que desenvolvemos para esses desafios ainda não responde com a mesma força e cadência.</p>
+            <p class="lead">É um contexto que exige uma nova abordagem de transformação, capaz de se propagar no mesmo ritmo dos problemas que enfrentamos, a fim de solucioná-los.</p>
+          </div>
+          <div class="split-media">
+            <!-- PENDENTE: imagem a ser enviada posteriormente -->
+            <div class="ph ph--photo" role="img" aria-label="Espaço reservado para imagem da seção Por que agir agora">Imagem<br>(a enviar posteriormente)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 4 — REDE DO SUL GLOBAL ======================= -->
+    <section id="sul-global" aria-labelledby="titulo-sul-global">
+      <div class="container">
+        <div class="section-head section-head--wide">
+          <p class="eyebrow">De onde viemos</p>
+          <h2 id="titulo-sul-global">Uma rede do Sul Global que mostra o que é possível ser feito em escala.</h2>
+          <p class="lead">O C4EC nasceu na Índia, referência global em infraestrutura pública digital (IPD) e bens públicos digitais (BPD), com plataformas abertas e interoperáveis, de larga escala e baixo custo, como sistemas de identidade digital e de pagamentos que alcançam mais de 1 bilhão de pessoas.</p>
+          <p class="lead">Essa rede pode nos reorientar sobre o que é possível ser feito em escala, em curto período de tempo e a um custo viável para países emergentes como o Brasil.</p>
+        </div>
+
+        <div class="video-box">
+          <!-- Player leve: mostra a miniatura e só carrega o YouTube quando a pessoa clica.
+               Evita cookies de terceiros no carregamento e não quebra ao abrir o arquivo localmente. -->
+          <div class="video-frame">
+            <button class="video-play" type="button"
+                    data-video="https://www.youtube-nocookie.com/embed/ZnsgdXNTosA?autoplay=1&rel=0"
+                    aria-label="Reproduzir o vídeo: conversa com Sanjay Purohit, CEO e curador-chefe do C4EC">
+              <img src="/assets/img/video-sanjay-purohit.webp" alt="" width="900" height="506">
+              <span class="video-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 68 48"><path d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z" fill="#F4522A"/><path d="M27 34l18-10-18-10z" fill="#fff"/></svg>
+              </span>
+            </button>
+          </div>
+          <div class="video-caption">
+            <h3>Sanjay Purohit, CEO e curador-chefe do C4EC fala sobre filantropia, o hub brasileiro, tecnologia e inovações em primeira infância e ação climática. Assista!</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 5 — PENSAMENTO SOCIETAL ======================= -->
+    <section class="section--coral-tint" id="pensamento-societal" aria-labelledby="titulo-st">
+      <div class="container">
+        <div class="section-head section-head--wide">
+          <p class="eyebrow">Uma nova forma de pensar</p>
+          <h2 id="titulo-st">Pensamento Societal</h2>
+          <p class="lead">Desde 2016, o time que fundou o C4EC estuda as forças exponenciais da natureza, movimentos sociais e mais de 500 experiências em 20 países. Dessa trajetória nasceu o Pensamento Societal, uma abordagem que identifica as condições necessárias para impulsionar mudanças exponenciais com escala, velocidade e sustentação.</p>
+        </div>
+
+        <div class="st-grid">
+          <!-- BOX 1: Modelo mental -->
+          <article class="card">
+            <span class="card-label">Modelo mental</span>
+            <div class="mm-cols">
+              <div class="mm-col">
+                <h3>A escala imposta de cima para baixo produz monocultura.</h3>
+                <!-- Foto da apresentação institucional (slides 19 e 21), na resolução original do PDF -->
+                <img class="mm-foto" src="/assets/img/monocultura.webp" width="590" height="369"
+                     alt="Plantação em monocultura: fileiras idênticas de uma única cultura se estendendo até o horizonte.">
+
+                <p>O que já funciona costuma ser um piloto bem-sucedido em um contexto muito específico. Replicá-lo em outros contextos não dá conta da diversidade de um território continental como o Brasil e a diversidade passa a ser tratada como desafio operacional.</p>
+              </div>
+              <div class="mm-col">
+                <h3>A escala que emerge em rede produz floresta tropical.</h3>
+                <!-- Foto da apresentação institucional (slides 20 e 21), na resolução original do PDF -->
+                <img class="mm-foto" src="/assets/img/floresta-tropical.webp" width="960" height="600"
+                     alt="Floresta tropical densa, com muitas espécies de plantas convivendo lado a lado.">
+
+                <p>O design para escala é pensado desde o início, restaurando a agência de cada ator em seu contexto. Espaços de coconstrução em rede compartilham o conhecimento existente e distribuem a capacidade de resolver por todo o ecossistema. Assim a escala emerge de forma orgânica e a diversidade se torna nosso principal ativo.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- BOX 2: Valores centrais -->
+          <article class="card card--purple">
+            <span class="card-label">Valores centrais</span>
+            <p class="lead">A mudança exponencial carrega, por natureza, o risco de consequências adversas não intencionais. Ao catalisá-la, é preciso avaliar e mitigar com cuidado as vulnerabilidades e os trade-offs que a transformação rápida pode impor a populações historicamente marginalizadas: o que parece progresso ambicioso pode ter custos ocultos para essas pessoas.</p>
+
+            <!-- Ícones dos valores centrais, redesenhados em vetor a partir do slide 29 da apresentação. -->
+            <ul class="valores">
+              <li>
+                <span class="valor-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Ícone: mão tocando uma estrela"><circle cx="60" cy="60" r="58" fill="#3EC8B4"/><g fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(38 47) scale(2.1)" stroke-width="1.33"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"/><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></g><polygon points="55,25 57.43,30.65 63.56,31.22 58.94,35.28 60.29,41.28 55,38.14 49.71,41.28 51.06,35.28 46.44,31.22 52.57,30.65"/><polygon points="35,35.8 36.68,39.69 40.9,40.08 37.71,42.88 38.64,47.02 35,44.85 31.36,47.02 32.29,42.88 29.1,40.08 33.32,39.69"/><polygon points="76,35.8 77.68,39.69 81.9,40.08 78.71,42.88 79.64,47.02 76,44.85 72.36,47.02 73.29,42.88 70.1,40.08 74.32,39.69"/><path d="M55 17v4M44 20l2.4 3M66 20l-2.4 3"/></g></svg></span>
+                <p><span>Restaurar a</span> Agência</p>
+              </li>
+              <li>
+                <span class="valor-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Ícone: aperto de mãos"><circle cx="60" cy="60" r="58" fill="#3EC8B4"/><g fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(26 29) scale(2.85)" stroke-width="0.98"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></g></g></svg></span>
+                <p><span>Nutrir a</span> Dignidade</p>
+              </li>
+              <li>
+                <span class="valor-ico" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Ícone: mão escolhendo entre formas"><circle cx="60" cy="60" r="58" fill="#3EC8B4"/><g fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(39 50) scale(2)" stroke-width="1.4"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1"/><path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></g><circle cx="55" cy="39" r="8"/><rect x="23" y="31" width="14" height="14" rx="1.5"/><path d="M81 45h16l-8-14z"/><path d="M37 38h10M63 38h21"/><path d="M30 45v12"/><circle cx="30" cy="61" r="3.6"/><path d="M89 45v12"/><circle cx="89" cy="61" r="3.6"/></g></svg></span>
+                <p><span>Possibilitar a</span> Escolha</p>
+              </li>
+            </ul>
+          </article>
+
+          <!-- BOX 3: Modelo Societal -->
+          <article class="card card--teal">
+            <span class="card-label">Modelo Societal</span>
+            <p class="lead">O Modelo Societal oferece uma base para desenhar mudanças exponenciais positivas, envolvendo atores de toda a sociedade.</p>
+            <!-- Diagrama redesenhado em vetor a partir do slide 31; as camadas ao lado seguem o mesmo slide -->
+            <div class="sm-grid">
+              <div class="sm-diagrama"><svg xmlns="http://www.w3.org/2000/svg" viewBox="20 18 360 424" role="img" aria-label="Diagrama do Modelo Societal: três camadas sobrepostas de redes interligadas. No topo, as redes societais; no meio, o ecossistema de cocriação; na base, a infraestrutura compartilhada."><g><polygon points="200,265 370,350 200,435 30,350" fill="#E1F5FB" fill-opacity=".94" stroke="#BDBDBD" stroke-width="5" stroke-linejoin="round"/><g stroke="#3CBDE3" stroke-width="2.4" stroke-linecap="round"><line x1="123.5" y1="350" x2="70.8" y2="354.25"/><line x1="123.5" y1="350" x2="98" y2="328.75"/><line x1="123.5" y1="350" x2="174.5" y2="324.5"/><line x1="123.5" y1="350" x2="166" y2="384"/><line x1="174.5" y1="324.5" x2="140.5" y2="307.5"/><line x1="174.5" y1="324.5" x2="225.5" y2="310.9"/><line x1="174.5" y1="324.5" x2="208.5" y2="350"/><line x1="208.5" y1="350" x2="242.5" y2="333"/><line x1="208.5" y1="350" x2="268" y2="367"/><line x1="242.5" y1="333" x2="302" y2="337.25"/><line x1="302" y1="337.25" x2="325.8" y2="358.5"/><line x1="268" y1="367" x2="302" y2="337.25"/><line x1="268" y1="367" x2="217" y2="401"/><line x1="166" y1="384" x2="217" y2="401"/><line x1="225.5" y1="310.9" x2="242.5" y2="333"/></g><g fill="#F6FCFE" stroke="#3CBDE3" stroke-width="2.4"><ellipse cx="123.5" cy="350" rx="14" ry="8.68"/><ellipse cx="174.5" cy="324.5" rx="6.5" ry="4.03"/><ellipse cx="225.5" cy="310.9" rx="5" ry="3.1"/><ellipse cx="208.5" cy="350" rx="5" ry="3.1"/><ellipse cx="268" cy="367" rx="17" ry="10.54"/><ellipse cx="98" cy="328.75" rx="5" ry="3.1"/><ellipse cx="166" cy="384" rx="8.5" ry="5.27"/><ellipse cx="302" cy="337.25" rx="7.5" ry="4.65"/><ellipse cx="242.5" cy="333" rx="4.5" ry="2.79"/><ellipse cx="70.8" cy="354.25" rx="4.5" ry="2.79"/><ellipse cx="217" cy="401" rx="5" ry="3.1"/><ellipse cx="325.8" cy="358.5" rx="4.5" ry="2.79"/><ellipse cx="140.5" cy="307.5" rx="4.5" ry="2.79"/></g></g><g><polygon points="200,145 370,230 200,315 30,230" fill="#FFF4D8" fill-opacity=".94" stroke="#BDBDBD" stroke-width="5" stroke-linejoin="round"/><g stroke="#EDB42C" stroke-width="2.4" stroke-linecap="round"><line x1="115" y1="225.75" x2="77.6" y2="230"/><line x1="115" y1="225.75" x2="155.8" y2="199.4"/><line x1="115" y1="225.75" x2="183" y2="252.1"/><line x1="115" y1="225.75" x2="138.8" y2="260.6"/><line x1="155.8" y1="199.4" x2="200" y2="213"/><line x1="200" y1="213" x2="234" y2="187.5"/><line x1="200" y1="213" x2="268" y2="226.6"/><line x1="200" y1="213" x2="183" y2="252.1"/><line x1="268" y1="226.6" x2="310.5" y2="234.25"/><line x1="268" y1="226.6" x2="295.2" y2="204.5"/><line x1="268" y1="226.6" x2="251" y2="260.6"/><line x1="183" y1="252.1" x2="208.5" y2="276.75"/><line x1="208.5" y1="276.75" x2="251" y2="260.6"/><line x1="234" y1="187.5" x2="295.2" y2="204.5"/></g><g fill="#FFFBF1" stroke="#EDB42C" stroke-width="2.4"><ellipse cx="115" cy="225.75" rx="11" ry="6.82"/><ellipse cx="155.8" cy="199.4" rx="5" ry="3.1"/><ellipse cx="200" cy="213" rx="7" ry="4.34"/><ellipse cx="234" cy="187.5" rx="5" ry="3.1"/><ellipse cx="268" cy="226.6" rx="16" ry="9.92"/><ellipse cx="183" cy="252.1" rx="6" ry="3.72"/><ellipse cx="208.5" cy="276.75" rx="15" ry="9.3"/><ellipse cx="310.5" cy="234.25" rx="6.5" ry="4.03"/><ellipse cx="77.6" cy="230" rx="4.5" ry="2.79"/><ellipse cx="138.8" cy="260.6" rx="4.5" ry="2.79"/><ellipse cx="251" cy="260.6" rx="5.5" ry="3.41"/><ellipse cx="295.2" cy="204.5" rx="4.5" ry="2.79"/></g></g><g><polygon points="200,25 370,110 200,195 30,110" fill="#EFE6F7" fill-opacity=".94" stroke="#BDBDBD" stroke-width="5" stroke-linejoin="round"/><g stroke="#7A3FA8" stroke-width="2.4" stroke-linecap="round"><line x1="106.5" y1="114.25" x2="162.6" y2="88.75"/><line x1="106.5" y1="114.25" x2="70.8" y2="114.25"/><line x1="106.5" y1="114.25" x2="121.8" y2="144"/><line x1="162.6" y1="88.75" x2="206.8" y2="116.8"/><line x1="162.6" y1="88.75" x2="138.8" y2="70.9"/><line x1="162.6" y1="88.75" x2="234" y2="71.75"/><line x1="234" y1="71.75" x2="200" y2="53.9"/><line x1="234" y1="71.75" x2="278.2" y2="88.75"/><line x1="206.8" y1="116.8" x2="261.2" y2="114.25"/><line x1="261.2" y1="114.25" x2="302" y2="111.7"/><line x1="302" y1="111.7" x2="325.8" y2="101.5"/><line x1="261.2" y1="114.25" x2="278.2" y2="88.75"/><line x1="206.8" y1="116.8" x2="217" y2="149.1"/><line x1="217" y1="149.1" x2="172.8" y2="156.75"/><line x1="261.2" y1="114.25" x2="217" y2="149.1"/></g><g fill="#FBF8FD" stroke="#7A3FA8" stroke-width="2.4"><ellipse cx="106.5" cy="114.25" rx="15" ry="9.3"/><ellipse cx="162.6" cy="88.75" rx="7" ry="4.34"/><ellipse cx="206.8" cy="116.8" rx="6" ry="3.72"/><ellipse cx="234" cy="71.75" rx="9" ry="5.58"/><ellipse cx="261.2" cy="114.25" rx="17" ry="10.54"/><ellipse cx="138.8" cy="70.9" rx="5" ry="3.1"/><ellipse cx="200" cy="53.9" rx="7" ry="4.34"/><ellipse cx="302" cy="111.7" rx="8" ry="4.96"/><ellipse cx="70.8" cy="114.25" rx="4.5" ry="2.79"/><ellipse cx="217" cy="149.1" rx="9" ry="5.58"/><ellipse cx="172.8" cy="156.75" rx="5" ry="3.1"/><ellipse cx="278.2" cy="88.75" rx="5" ry="3.1"/><ellipse cx="121.8" cy="144" rx="4.5" ry="2.79"/><ellipse cx="325.8" cy="101.5" rx="4.5" ry="2.79"/></g></g></svg></div>
+              <ul class="sm-camadas">
+                <li class="sm-camada sm-camada--redes">
+                  <h3>Redes societais</h3>
+                  <p><strong>Adoção radical</strong>, sociedade civil, governo e mercados atuando juntos para alcançar todos</p>
+                  <span class="sm-acao">Catalisar efeitos de rede</span>
+                </li>
+                <li class="sm-camada sm-camada--cocriacao">
+                  <h3>Ecossistema de cocriação</h3>
+                  <p><strong>Inovação contextual</strong>, muitos atores se unindo para cocriar soluções diversas.</p>
+                  <span class="sm-acao">Distribuir a habilidade de resolver</span>
+                </li>
+                <li class="sm-camada sm-camada--infra">
+                  <h3>Infraestrutura compartilhada</h3>
+                  <p><strong>Capacidades compartilhadas</strong>, blocos que outros reusam para resolver mais rápido e a custo menor.</p>
+                  <span class="sm-acao">Construir capacidade compartilhada</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- BOX 4: Trilogia Think -->
+          <article class="card">
+            <span class="card-label">Livros</span>
+            <h3>Trilogia de livros aprofunda os fundamentos do Pensamento Societal</h3>
+            <p class="books-intro">As obras têm curadoria de Sanjay Purohit, Anjali Hans e Naveen Varshan e reúnem ideias de mais de 150 pensadores, lideranças e financiadores.</p>
+            <div class="books">
+              <div class="book">
+                <img class="book-cover" src="/assets/img/capa-do-livro-pensando-a-escala.webp" alt="Capa do livro Pensando a escala" width="400" height="623">
+                <h4>Pensando a Escala</h4>
+                <p>Pensando a Escala provoca a reflexão sobre como dimensionar problemas sociais e desenhar soluções à sua altura</p>
+                <a class="dl" href="https://societalthinking.org/wp-content/uploads/2026/08/Think-Scale-PORTUGUESE.pdf" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+                  Baixar o PDF
+                </a>
+              </div>
+              <div class="book">
+                <img class="book-cover" src="/assets/img/capa-do-livro-pensando-a-velocidade.webp" alt="Capa do livro Pensando a velocidade" width="400" height="628">
+                <h4>Pensando a Velocidade</h4>
+                <p>Pensando a Velocidade trata de antecipar mudanças e agir no mesmo ritmo dos desafios</p>
+                <a class="dl" href="https://societalthinking.org/wp-content/uploads/2026/04/Think-SPEED-PORTUGUESE.pdf" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+                  Baixar o PDF
+                </a>
+              </div>
+              <div class="book">
+                <img class="book-cover" src="/assets/img/capa-do-livro-pensando-a-sustentacao.webp" alt="Capa do livro Pensando a sustentação" width="400" height="625">
+                <h4>Pensando a Sustentação</h4>
+                <p>Pensando a Sustentação discute como tornar transformações duradouras e fortalecer a agência das pessoas ao longo do tempo.</p>
+                <a class="dl" href="https://societalthinking.org/wp-content/uploads/2026/04/Think-SUSTAIN-PORTUGUESE.pdf" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+                  Baixar o PDF
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 5 (bis) — ORQUESTRADORES DE SISTEMAS ======================= -->
+    <section class="section--teal" id="orquestradores" aria-labelledby="titulo-orq">
+      <div class="container">
+        <div class="split split--img-left">
+          <div class="split-text">
+            <p class="eyebrow">Com quem trabalhamos</p>
+            <h2 id="titulo-orq">Orquestradores de Sistemas</h2>
+            <p class="lead" style="margin-top: var(--s-2)">Lideranças na sociedade civil e no governo, capazes de articular diferentes atores e recursos para enfrentar desafios estruturais de forma colaborativa. Afinal, problemas que avançam de forma exponencial precisam ser enfrentados em conjunto, com a escala e a rapidez necessárias.</p>
+          </div>
+          <div class="split-media">
+            <!-- PENDENTE: imagem à esquerda, a ser enviada -->
+            <div class="ph ph--photo ph--neutral" role="img" aria-label="Espaço reservado para imagem dos Orquestradores de Sistemas">Imagem<br>(a enviar posteriormente)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 6 — JORNADAS ======================= -->
+    <section id="jornadas" aria-labelledby="titulo-jornadas">
+      <div class="container">
+        <div class="section-head section-head--wide">
+          <p class="eyebrow">Como fazemos</p>
+          <h2 id="titulo-jornadas">Jornadas para Mudança Exponencial são a nossa principal forma de atuação</h2>
+          <p class="lead">Até 2029 selecionaremos parceiros para sustentar pelo menos 20 Jornadas para Mudança Exponencial no Brasil nas temáticas de: educação, saúde, equidade, meios de vida e ação climática. Os Parceiros de Jornada têm acesso a:</p>
+        </div>
+
+        <ul class="offers">
+          <li>
+            <span class="offer-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 5.5A1.5 1.5 0 0 1 4.5 4H9a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H3V5.5z" stroke="#F4522A"/><path d="M21 5.5A1.5 1.5 0 0 0 19.5 4H15a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7V5.5z" stroke="#2D9688"/></svg>
+            </span>
+            <p><strong>Conhecimento prático aberto:</strong> por que, o que e como buscar mudanças exponenciais.</p>
+          </li>
+          <li>
+            <span class="offer-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 20l3.5-1 10-10-2.5-2.5-10 10L4 20z" stroke="#F4522A"/><path d="M15 6.5l2.5 2.5M13 4l3-3 4 4-3 3" stroke="#2D9688"/></svg>
+            </span>
+            <p><strong>Suporte no design e prototipagem:</strong> com apoio da equipe local de design e dos parceiros da rede.</p>
+          </li>
+          <li>
+            <span class="offer-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="#F4522A"/><path d="M12 6.5v11M14.5 9a2.5 2 0 0 0-2.5-1.5c-1.5 0-2.5.8-2.5 2 0 2.8 5 1.4 5 4.3 0 1.2-1 2.2-2.5 2.2S9.5 15 9.5 15" stroke="#2D9688"/></svg>
+            </span>
+            <p><strong>Doações para Mudança de Paradigma:</strong> apoio financeiro para reimaginar e prototipar.</p>
+          </li>
+          <li>
+            <span class="offer-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="#F4522A"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" stroke="#2D9688"/></svg>
+            </span>
+            <p><strong>Rede global de apoio:</strong> mentores e colaboradores que ajudam com desafios ao longo da jornada.</p>
+          </li>
+          <li>
+            <span class="offer-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" stroke="#F4522A"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5" stroke="#F4522A"/><circle cx="17" cy="9" r="2.5" stroke="#2D9688"/><path d="M15.5 14c2.8 0 5.5 1.6 5.5 4.5" stroke="#2D9688"/></svg>
+            </span>
+            <p><strong><em>Leader’s Lab Network</em>:</strong> espaço seguro para fortalecer a autoeficácia das lideranças junto a seus pares.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 7 — ORGANIZAÇÕES BRASILEIRAS EM JORNADA ======================= -->
+    <section class="section--coral-tint" id="parceiros" aria-labelledby="titulo-parceiros">
+      <div class="container">
+        <div class="section-head section-head--wide">
+          <p class="eyebrow">Parceiros de jornada</p>
+          <h2 id="titulo-parceiros">Organizações brasileiras atualmente em jornada</h2>
+        </div>
+
+        <!-- Confirmar as URLs dos sites de cada organização antes de publicar -->
+        <ul class="partners">
+          <li class="partner">
+            <img class="partner-logo" src="/assets/img/parceiro-conexsus.webp" alt="Conexsus" width="380" height="77">
+            <h3>Conexsus</h3>
+            <p>A organização tem um trabalho orientado por uma visão de impacto, na qual a sociobioeconomia contribui para a conservação e regeneração dos biomas e para a mitigação e adaptação às mudanças climáticas, impactando diretamente o bem-estar de povos indígenas, comunidades locais e agricultores familiares.</p>
+            <a class="more" href="https://www.conexsus.org/" target="_blank" rel="noopener">Conheça a Conexsus
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </li>
+          <li class="partner">
+            <img class="partner-logo" src="/assets/img/parceiro-visao-coop.webp" alt="Visão Coop" width="380" height="125">
+            <h3>Visão Coop</h3>
+            <p>Iniciativa dedicada ao enfrentamento da crise climática por meio da articulação de conhecimento, tecnologia e ação coletiva na América do Sul. Atua no mapeamento e na ativação de tecnologias voltadas à regeneração de biomas e à adaptação climática em ecossistemas e periferias urbanas, promovendo respostas estruturais e territorializadas aos desafios climáticos.</p>
+            <a class="more" href="https://visaocoop.org/" target="_blank" rel="noopener">Conheça a Visão Coop
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </li>
+          <li class="partner">
+            <img class="partner-logo" src="/assets/img/parceiro-sas-brasil.webp" alt="SAS Brasil" width="269" height="130">
+            <h3>SAS Brasil</h3>
+            <p>A organização atua para transformar o acesso à saúde especializada no país. Combina tecnologia, inovação e impacto social em um modelo que une atendimento presencial e digital, e suas ações já beneficiaram 1,5 milhão de pessoas em todas as regiões do Brasil.</p>
+            <a class="more" href="https://www.sasbrasil.org.br/" target="_blank" rel="noopener">Conheça a SAS Brasil
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </li>
+          <li class="partner">
+            <img class="partner-logo" src="/assets/img/parceiro-desenrola-e-nao-me-enrola.webp" alt="Desenrola e Não Me Enrola" width="162" height="130">
+            <h3>Desenrola e Não Me Enrola</h3>
+            <p>Organização de Jornalismo de Soluções e Alfabetização Midiática Antirracista, trabalha para desenvolver, implementar e escalar tecnologias informativas e educacionais focadas na prevenção e combate das desigualdades informacionais.</p>
+            <a class="more" href="https://desenrolaenaomenrola.com.br/" target="_blank" rel="noopener">Conheça o Desenrola e Não Me Enrola
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </li>
+          <li class="partner">
+            <img class="partner-logo" src="/assets/img/parceiro-mapbiomas.webp" alt="MapBiomas" width="190" height="132">
+            <h3>MapBiomas</h3>
+            <p>Com base em ciência aberta e colaborativa, a rede alimenta uma plataforma que integra imagens de satélite, aprendizado de máquina e computação em nuvem. Todos os dados, mapas, métodos e códigos são disponibilizados de forma pública e gratuita.</p>
+            <a class="more" href="https://brasil.mapbiomas.org/" target="_blank" rel="noopener">Conheça o MapBiomas
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </li>
+          <li class="partner">
+            <img class="partner-logo" src="/assets/img/parceiro-serenas.webp" alt="Serenas" width="380" height="104">
+            <h3>Serenas</h3>
+            <p>A organização atua para prevenir violências baseadas em gênero no Brasil.</p>
+            <p>Em parceria com governos, organismos internacionais e organizações da sociedade civil, baseia suas atividades em três pilares: educação para prevenção da violência, qualificação de agentes públicos para acolhimento humanizado às sobreviventes de violência sexual e doméstica, e produção de conhecimento.</p>
+            <a class="more" href="https://serenas.org.br/" target="_blank" rel="noopener">Conheça a Serenas
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 8 — PARCEIROS GLOBAIS (carrossel) ======================= -->
+    <section id="parceiros-globais" aria-labelledby="titulo-globais">
+      <div class="container">
+        <div class="section-head section-head--wide">
+          <p class="eyebrow">Rede</p>
+          <h2 id="titulo-globais">Parceiros globais do C4EC que apoiam o trabalho no Brasil:</h2>
+        </div>
+      </div>
+      <!-- Logos em ordem alfabética. A Catálise veio na versão branca (para fundo escuro), por isso o cartão escuro. -->
+      <div class="marquee" aria-label="Logos dos parceiros globais do C4EC">
+        <ul class="marquee-track" id="logos-globais">
+          <li class="logo-tile"><img src="/assets/img/global-apurva-ai.webp" alt="Apurva.ai" width="280" height="53"></li>
+          <li class="logo-tile"><img src="/assets/img/global-the-bridgespan-group.webp" alt="The Bridgespan Group" width="280" height="90"></li>
+          <li class="logo-tile logo-tile--escuro"><img src="/assets/img/global-catalise.webp" alt="Catálise" width="212" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-catalyst-now.webp" alt="Catalyst Now" width="153" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-centre-for-digital-public-infrastructure-cdpi.webp" alt="Centre for Digital Public Infrastructure (CDPI)" width="102" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-collective-change-lab.webp" alt="Collective Change Lab" width="131" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-centre-for-open-societal-systems-coss.webp" alt="Centre for Open Societal Systems (COSS)" width="77" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-dalberg.webp" alt="Dalberg" width="280" height="84"></li>
+          <li class="logo-tile"><img src="/assets/img/global-dasra.webp" alt="Dasra" width="112" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-digital-public-goods-alliance.webp" alt="Digital Public Goods Alliance" width="148" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-egov-foundation.webp" alt="eGov Foundation" width="280" height="105"></li>
+          <li class="logo-tile"><img src="/assets/img/global-ekstep.webp" alt="EkStep" width="280" height="96"></li>
+          <li class="logo-tile"><img src="/assets/img/global-futurar.webp" alt="Futurar" width="280" height="62"></li>
+          <li class="logo-tile"><img src="/assets/img/global-giving-tuesday.webp" alt="Giving Tuesday" width="271" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-indihood.webp" alt="indihood" width="280" height="45"></li>
+          <li class="logo-tile"><img src="/assets/img/global-integral.webp" alt="Integral" width="280" height="97"></li>
+          <li class="logo-tile"><img src="/assets/img/global-navadhiti.webp" alt="Navadhiti" width="132" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-networks-for-humanity.webp" alt="Networks for Humanity" width="280" height="68"></li>
+          <li class="logo-tile"><img src="/assets/img/global-project-echo.webp" alt="Project ECHO" width="112" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-sattva.webp" alt="Sattva" width="203" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-shikshalokam.webp" alt="ShikshaLokam" width="161" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-tekdi.webp" alt="TEKDI" width="137" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-the-wellbeing-project.webp" alt="The Wellbeing Project" width="213" height="112"></li>
+          <li class="logo-tile"><img src="/assets/img/global-uvu-africa.webp" alt="UVU Africa" width="155" height="112"></li>
+          <li class="logo-tile logo-tile--wasan"><img src="/assets/img/global-wasan-network.webp" alt="Wasan Network" width="280" height="106"></li>
+          <li class="logo-tile"><img src="/assets/img/global-wings.webp" alt="WINGS" width="158" height="112"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 9 — DEPOIMENTOS ======================= -->
+    <!-- Título provisório, conforme o documento de estrutura -->
+    <section class="section--coral-tint" id="depoimentos" aria-labelledby="titulo-depoimentos">
+      <div class="container">
+        <div class="section-head section-head--wide">
+          <p class="eyebrow">Depoimentos</p>
+          <h2 id="titulo-depoimentos">O que dizem sobre o CMe</h2>
+          <p class="lead">Depoimentos de parceiros, mentores e lideranças do ecossistema.</p>
+        </div>
+
+        <div class="testimonials">
+          <article class="testimonial">
+            <blockquote>“A abordagem de crescimento exponencial do CMe é fundamental para ampliar capilaridade e impacto sem crescer a estrutura na mesma proporção”.</blockquote>
+            <footer>
+              <img class="depo-foto" src="/assets/img/depoimento-fabiola-zerbini.webp" alt="" width="200" height="200">
+              <div class="who"><span class="name">Fabíola Zerbini</span><span class="role">Diretora Executiva | Conexsus - Conexões Sustentáveis</span></div>
+            </footer>
+          </article>
+          <article class="testimonial">
+            <blockquote>“A parceria com o CMe nos mostrou que é possível mudar elaborando conhecimento, não só somando ações”.</blockquote>
+            <footer>
+              <img class="depo-foto" src="/assets/img/depoimento-ronaldo-matos.webp" alt="" width="200" height="200">
+              <div class="who"><span class="name">Ronaldo Matos</span><span class="role">Cofundador | Desenrola e Não Me Enrola</span></div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= EQUIPE ======================= -->
+    <!-- Nomes completos, cargos e fotos vindos de centreforexponentialchange.org/brazil -->
+    <section id="equipe" aria-labelledby="titulo-equipe">
+      <div class="container">
+        <div class="section-head section-head--wide">
+          <p class="eyebrow">Equipe</p>
+          <h2 id="titulo-equipe">Conheça o time do CMe</h2>
+        </div>
+
+        <ul class="equipe">
+          <li>
+            <img src="/assets/img/equipe-fabio-tran.webp" alt="" width="224" height="224">
+            <p class="equipe-nome">Fabio Tran</p>
+            <p class="equipe-cargo">Diretor</p>
+          </li>
+          <li>
+            <img src="/assets/img/equipe-flavia-goulart.webp" alt="" width="224" height="224">
+            <p class="equipe-nome">Flávia Goulart Jesus Pinto</p>
+            <p class="equipe-cargo">Gerente de Redes e Parcerias</p>
+          </li>
+          <li>
+            <img src="/assets/img/equipe-inara-velasco.webp" alt="" width="224" height="224">
+            <p class="equipe-nome">Inara Arruda Velasco</p>
+            <p class="equipe-cargo">Analista</p>
+          </li>
+          <li>
+            <img src="/assets/img/equipe-robert-parkinson.webp" alt="" width="224" height="224">
+            <p class="equipe-nome">Robert Parkinson</p>
+            <p class="equipe-cargo">PMO</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================= MÓDULO 10 — APOIE O CME ======================= -->
+    <section class="join" id="apoie" aria-labelledby="titulo-apoie">
+      <div class="container">
+        <div class="join-inner">
+          <h2 id="titulo-apoie">Apoie o CMe</h2>
+          <p class="lead">Você pode nos apoiar de duas formas:</p>
+        </div>
+
+        <ul class="join-ways">
+          <li>
+            <h3>Financie uma Jornada</h3>
+            <p>Contribua diretamente para uma Jornada para Mudança Exponencial, apoiando as organizações que orquestram mudanças sistêmicas com atuação em saúde, meios de vida, clima, educação e equidade.</p>
+          </li>
+          <li>
+            <h3>Faça uma doação institucional</h3>
+            <p>Sua organização pode apoiar o CMe de forma recorrente ou pontual, fortalecendo a produção de conhecimento, pesquisas e conteúdos que corroboram as transformações que queremos ver no mundo.</p>
+          </li>
+        </ul>
+
+        <div class="join-actions">
+          <a class="btn btn-light" href="mailto:contato@exponenciais.org.br">Entre em contato e saiba mais.</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================= MÓDULO 11 — RODAPÉ ======================= -->
+  <footer class="site-footer" id="contato">
+    <div class="container">
+      <!-- Curva exponencial: ativo gráfico de assinatura da marca -->
+      <svg class="curve" viewBox="0 0 1120 90" aria-hidden="true" focusable="false" style="margin-bottom: var(--s-5)">
+        <g>
+          <circle cx="20"   cy="78" r="3"  fill="#F4522A"/>
+          <circle cx="80"   cy="76" r="4"  fill="#F4522A"/>
+          <circle cx="140"  cy="74" r="5"  fill="#F4522A"/>
+          <circle cx="200"  cy="71" r="6"  fill="#F5613A"/>
+          <circle cx="260"  cy="68" r="7"  fill="#F7754E"/>
+          <circle cx="320"  cy="64" r="8"  fill="#F7754E"/>
+          <circle cx="380"  cy="60" r="9"  fill="#F9A994"/>
+          <circle cx="440"  cy="55" r="10" fill="#F9A994"/>
+          <circle cx="500"  cy="50" r="11" fill="#F2B7A7"/>
+          <circle cx="560"  cy="45" r="12" fill="#D9C7C1"/>
+          <circle cx="620"  cy="40" r="13" fill="#B9DDD6"/>
+          <circle cx="680"  cy="35" r="14" fill="#9EE4D9"/>
+          <circle cx="740"  cy="30" r="15" fill="#9EE4D9"/>
+          <circle cx="800"  cy="26" r="16" fill="#70D6C7"/>
+          <circle cx="860"  cy="23" r="17" fill="#70D6C7"/>
+          <circle cx="920"  cy="21" r="18" fill="#3EC8B4"/>
+          <circle cx="980"  cy="20" r="19" fill="#3EC8B4"/>
+          <circle cx="1040" cy="20" r="20" fill="#3EC8B4"/>
+          <circle cx="1100" cy="20" r="20" fill="#2AA899"/>
+        </g>
+      </svg>
+
+      <div class="footer-grid">
+        <!-- Marcas: CMe como principal e, ao lado, o Instituto Beja com a chancela de cofundador global -->
+        <div class="footer-marcas">
+          <a class="brand footer-brand" href="#inicio" aria-label="Centro para Mudanças Exponenciais — voltar ao início">
+            <img src="/assets/img/logo-centro-para-mudancas-exponenciais.webp" alt="Centro para Mudanças Exponenciais" width="400" height="74">
+          </a>
+          <div class="footer-cofundador">
+            <span>Cofundador Global</span>
+            <img src="/assets/img/logo-instituto-beja.webp" alt="Instituto Beja" width="400" height="91">
+          </div>
+        </div>
+
+        <div>
+          <h4>Contato</h4>
+          <ul class="footer-list">
+            <li><a href="mailto:contato@exponenciais.org.br">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F4522A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6" stroke="#2D9688"/></svg>
+              contato@exponenciais.org.br</a></li>
+            <li><!-- PENDENTE: link da newsletter -->
+              <a href="#newsletter" aria-describedby="nota-newsletter">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F4522A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h13a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2V6z"/><path d="M19 8h1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1M8 10h6M8 14h4" stroke="#2D9688"/></svg>
+              Assine nossa newsletter</a>
+              <span id="nota-newsletter" class="visually-hidden">Link da newsletter será disponibilizado em breve.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col-sem-titulo">
+          <ul class="footer-list">
+            <li><a href="https://www.linkedin.com/company/centro-para-mudancas-exponenciais" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F4522A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.5M12 17v-4a2.5 2.5 0 0 1 5 0v4M12 10v7" stroke="#2D9688"/></svg>
+              LinkedIn</a></li>
+            <li><a href="https://centreforexponentialchange.org/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#F4522A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" stroke="#2D9688"/></svg>
+              Centre for Exponential Change</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="ano">2026</span> Centro para Mudanças Exponenciais (CMe).</span>
+        <span>exponenciais.org.br</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Menu mobile
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          var open = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!open));
+          toggle.setAttribute('aria-label', open ? 'Abrir menu' : 'Fechar menu');
+          menu.classList.toggle('is-open', !open);
+        });
+        menu.addEventListener('click', function (e) {
+          if (e.target.tagName === 'A') {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Abrir menu');
+            menu.classList.remove('is-open');
+          }
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Abrir menu');
+            menu.classList.remove('is-open');
+            toggle.focus();
+          }
+        });
+      }
+
+      // Carrossel de logos: duplica os itens para o loop contínuo (cópia oculta a leitores de tela)
+      var track = document.getElementById('logos-globais');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (track && !reduce) {
+        Array.prototype.slice.call(track.children).forEach(function (li) {
+          var clone = li.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          track.appendChild(clone);
+        });
+      }
+
+      // Player de vídeo: troca a miniatura pelo iframe do YouTube ao clicar
+      var play = document.querySelector('.video-play');
+      if (play) {
+        play.addEventListener('click', function () {
+          var frame = document.createElement('iframe');
+          frame.src = play.getAttribute('data-video');
+          frame.title = 'Conversa com Sanjay Purohit, CEO e curador-chefe do C4EC';
+          frame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+          frame.setAttribute('allowfullscreen', '');
+          frame.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          play.parentNode.replaceChild(frame, play);
+          frame.focus();
+        });
+      }
+
+      // Ano no rodapé
+      var ano = document.getElementById('ano');
+      if (ano) ano.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>

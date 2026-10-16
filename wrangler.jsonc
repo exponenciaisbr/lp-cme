@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "lp-cme",
+  "compatibility_date": "2026-10-01",
+  // Site 100% estático: o Worker só serve os arquivos de ./public.
+  // public/index-cme.html responde em /index-cme (sem extensão, sem barra final).
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
