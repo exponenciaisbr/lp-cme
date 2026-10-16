@@ -46,7 +46,8 @@ Abra http://localhost:8787/index-cme.
 
 ## Publicar
 
-Veja `deploy.md`. Depois do primeiro passo a passo, publicar uma mudança é só `npm run deploy`.
+Veja `deploy.md`. Cada push na `main` publica a página pelo GitHub Actions. Para
+publicar diretamente deste computador, use `npm run deploy`.
 
 ## O que não mexer
 

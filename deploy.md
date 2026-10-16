@@ -51,8 +51,16 @@ Simula a publicação e mostra quantos arquivos seriam enviados. Não envia nada
 npm run deploy
 ```
 
-Na primeira vez, cria o projeto `lp-cme` na sua conta. Ao terminar, mostra o endereço:
-`https://lp-cme.<sua-conta>.workers.dev/index-cme`.
+Publica o Worker `lp-cme` na conta Cloudflare de governanca@exponenciais.org.br.
+O endereço é `https://lp-cme.governanca-c8e.workers.dev/index-cme`.
+
+## Publicação automática pela `main`
+
+O workflow `.github/workflows/deploy.yml` executa `npm run deploy` a cada push na
+branch `main`. Ele também pode ser iniciado manualmente na aba **Actions** do GitHub.
+Para funcionar, o repositório precisa ter o segredo `CLOUDFLARE_API_TOKEN` com um
+token de API da Cloudflare limitado à conta acima e com permissão para editar Workers.
+O ID da conta está em `wrangler.jsonc`; nunca coloque o token no repositório.
 
 ## 6. Domínio próprio (opcional)
 
