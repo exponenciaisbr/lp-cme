@@ -30,7 +30,7 @@
   // Conteúdo visível sem JS; cada entrada é animada uma única vez.
   if ('IntersectionObserver' in window && Element.prototype.animate) {
     var selector = '.hero-inner > *, .section-head, .split-text, .split-media, .box, ' +
-      '.video-box, .st-grid > .card, .offers > li, .partner, .testimonial, ' +
+      '.video-box, .st-grid > .card, .offers > li, .partner, .depo-carrossel, ' +
       '.equipe > li, .join-inner, .join-ways > li, .join-actions, .site-footer .curve circle';
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {

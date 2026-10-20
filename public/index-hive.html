@@ -792,8 +792,40 @@
     /* =========================================================
        MÓDULO 9 — DEPOIMENTOS
        ========================================================= */
-    .testimonials { display: grid; gap: var(--s-3); max-width: 1000px; }
-    @media (min-width: 768px) { .testimonials { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    /* Carrossel com rolagem nativa: um card no celular, dois a partir de 768px.
+       O respiro vertical do trilho evita cortar o card erguido no hover (motion.css). */
+    .depo-carrossel { max-width: 1000px; }
+    .testimonials {
+      display: flex; gap: var(--s-3); overflow-x: auto; overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory; scroll-behavior: smooth; scroll-padding-inline: 4px; scrollbar-width: none;
+      padding: 12px 4px 36px; margin: -12px -4px -36px;
+    }
+    .testimonials::-webkit-scrollbar { display: none; }
+    .testimonials > .testimonial { flex: 0 0 88%; scroll-snap-align: start; }
+    @media (min-width: 768px) { .testimonials > .testimonial { flex-basis: calc((100% - var(--s-3)) / 2); } }
+    .depo-controles { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); margin-top: var(--s-3); }
+    .depo-controles[hidden] { display: none; }
+    .depo-pontos { display: flex; flex-wrap: wrap; }
+    .depo-pontos button {
+      width: 28px; height: 28px; padding: 0; border: 0; background: none; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .depo-pontos button::before {
+      content: ""; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--line); transition: background-color .2s ease, width .2s ease;
+    }
+    .depo-pontos button[aria-current="true"]::before { width: 22px; border-radius: 5px; background: var(--coral-d1); }
+    .depo-setas { display: flex; gap: var(--s-1); }
+    .depo-setas button {
+      width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--surface); color: var(--coral-d1); border: 1.5px solid var(--coral-d1);
+      transition: background-color .2s ease, color .2s ease, opacity .2s ease;
+    }
+    .depo-setas button:hover:not(:disabled) { background: var(--coral-d1); color: var(--white); }
+    .depo-setas button:disabled { opacity: .35; cursor: default; }
+    .depo-setas svg { width: 20px; height: 20px; }
+    @media (prefers-reduced-motion: reduce) { .testimonials { scroll-behavior: auto; } }
     .testimonial {
       background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--line);
       padding: var(--s-4); display: flex; flex-direction: column; gap: var(--s-3);
@@ -1309,7 +1341,10 @@
           <p class="lead">Depoimentos de parceiros, mentores e lideranças do ecossistema.</p>
         </div>
 
-        <div class="testimonials">
+        <!-- Para incluir um depoimento, copie um <article class="testimonial"> inteiro dentro do trilho.
+             Setas e indicadores se ajustam sozinhos à quantidade. -->
+        <div class="depo-carrossel">
+        <div class="testimonials" id="depo-trilho" role="region" aria-label="Depoimentos (role para ver mais)" tabindex="0">
           <article class="testimonial">
             <blockquote>“A abordagem de crescimento exponencial do CMe é fundamental para ampliar capilaridade e impacto sem crescer a estrutura na mesma proporção”.</blockquote>
             <footer>
@@ -1324,6 +1359,26 @@
               <div class="who"><span class="name">Ronaldo Matos</span><span class="role">Cofundador | Desenrola e Não Me Enrola</span></div>
             </footer>
           </article>
+          <article class="testimonial">
+            <blockquote>“Percebemos que inovar nem sempre significa criar algo novo. Muitas vezes, significa fazer o que já existe funcionar melhor, junto. E talvez o aprendizado mais importante tenha sido este: não nos apaixonarmos tanto pelas nossas soluções a ponto de esquecer o problema que queremos resolver”.</blockquote>
+            <footer>
+              <img class="depo-foto" src="/assets/img/depoimento-sabine-bolonhini.webp" alt="Retrato de Sabine Bolonhini, cofundadora da SAS Brasil" width="200" height="200" loading="lazy" decoding="async">
+              <div class="who"><span class="name">Sabine Bolonhini</span><span class="role">Cofundadora | SAS Brasil</span></div>
+            </footer>
+          </article>
+        </div>
+        <!-- Controles aparecem só com JavaScript e quando há mais depoimentos do que cabem na tela -->
+        <div class="depo-controles" hidden>
+          <div class="depo-pontos" id="depo-pontos"></div>
+          <div class="depo-setas">
+            <button type="button" id="depo-anterior" aria-label="Depoimento anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button type="button" id="depo-proximo" aria-label="Próximo depoimento">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
         </div>
       </div>
     </section>
@@ -1501,6 +1556,54 @@
           clone.setAttribute('aria-hidden', 'true');
           track.appendChild(clone);
         });
+      }
+
+      // Carrossel de depoimentos: setas e indicadores sobre a rolagem nativa do trilho
+      var depo = document.getElementById('depo-trilho');
+      if (depo) {
+        var depoControles = depo.parentNode.querySelector('.depo-controles');
+        var depoPontos = document.getElementById('depo-pontos');
+        var depoAnt = document.getElementById('depo-anterior');
+        var depoProx = document.getElementById('depo-proximo');
+        var depoFrame = 0;
+        var depoPasso = function () {
+          var c = depo.children;
+          return c.length > 1 ? c[1].offsetLeft - c[0].offsetLeft : depo.clientWidth;
+        };
+        var depoMax = function () { return depo.scrollWidth - depo.clientWidth; };
+        var depoAtualiza = function () {
+          var max = depoMax();
+          var atual = Math.round(depo.scrollLeft / depoPasso());
+          depoAnt.disabled = depo.scrollLeft <= 2;
+          depoProx.disabled = depo.scrollLeft >= max - 2;
+          Array.prototype.forEach.call(depoPontos.children, function (b, i) {
+            var ativo = depo.scrollLeft >= max - 2 ? i === depoPontos.children.length - 1 : i === atual;
+            b.setAttribute('aria-current', String(ativo));
+          });
+        };
+        var depoMonta = function () {
+          var paginas = depoMax() > 2 ? Math.round(depoMax() / depoPasso()) + 1 : 1;
+          depoControles.hidden = paginas < 2;
+          depoPontos.textContent = '';
+          for (var i = 0; i < paginas; i++) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.setAttribute('aria-label', 'Ir para o depoimento ' + (i + 1));
+            b.addEventListener('click', (function (n) {
+              return function () { depo.scrollTo({ left: n * depoPasso() }); };
+            })(i));
+            depoPontos.appendChild(b);
+          }
+          depoAtualiza();
+        };
+        depoAnt.addEventListener('click', function () { depo.scrollBy({ left: -depoPasso() }); });
+        depoProx.addEventListener('click', function () { depo.scrollBy({ left: depoPasso() }); });
+        depo.addEventListener('scroll', function () {
+          cancelAnimationFrame(depoFrame);
+          depoFrame = requestAnimationFrame(depoAtualiza);
+        }, { passive: true });
+        window.addEventListener('resize', depoMonta);
+        depoMonta();
       }
 
       // Player de vídeo: troca a miniatura pelo iframe do YouTube ao clicar
