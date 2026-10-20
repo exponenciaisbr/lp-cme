@@ -8,6 +8,8 @@ endereço **`/index-cme`**. Quem acessa a raiz do site (`/`) é levado automatic
 ```
 public/
 ├── index-cme.html        # a página inteira (textos, estilos e o pequeno script do menu)
+├── motion.css            # efeitos visuais, estados interativos e movimento reduzido
+├── motion.js             # entradas ao rolar e reação da abertura ao cursor
 ├── 404.html              # página de "não encontrada", com botão de volta
 ├── _redirects            # / → /index-cme
 ├── _headers              # cache longo para fontes e imagens
