@@ -1,81 +1,101 @@
-# Publicando a landing do CMe (lp-cme)
+# Publicação do CMe
 
-A página roda na Cloudflare como um Worker com arquivos estáticos (sem código de servidor).
-O plano gratuito cobre com folga: hospedagem estática ilimitada, SSL incluso e 100 mil
-requisições por dia. O único custo possível é o domínio próprio, se ainda não tiver um.
+A página principal está em `public/index.html`. O build resolve as variáveis de
+ambiente e grava somente os arquivos publicáveis em `dist/`. O histórico está em
+`old/historico/` e nunca é copiado para a publicação.
 
-## Antes de começar
+## Ambiente local
 
-- Node.js 20 ou superior (confira com `node -v`)
-- Conta na Cloudflare, gratuita: https://dash.cloudflare.com/sign-up
+Use Node.js 22.9 ou superior. Instale as dependências e copie o modelo:
 
-## 1. Instalar as dependências
-
-```bash
-npm install
+```powershell
+npm ci
+Copy-Item .env.example .env.local
 ```
 
-Instala o Wrangler, a ferramenta oficial da Cloudflare, dentro do projeto.
+Preencha `.env.local` com os valores do ambiente:
 
-## 2. Entrar na conta Cloudflare
-
-```bash
-npx wrangler login
+```dotenv
+SITE_URL=https://example.org
+CONTACT_EMAIL=contato@example.org
 ```
 
-Abre o navegador para você autorizar. Para conferir em qual conta está logado:
+`SITE_URL` aceita uma origem HTTPS, sem caminho, parâmetros ou fragmento. A barra
+final é normalizada. HTTP é aceito somente para desenvolvimento em localhost.
+A mesma variável alimenta canonical, Open Graph, JSON-LD, sitemap, robots e o
+hostname exibido no rodapé. `CONTACT_EMAIL` alimenta texto, links e dados estruturados.
+O arquivo local é ignorado pelo Git. Variáveis fornecidas pelo processo ou pelo CI
+têm precedência sobre os valores do arquivo.
 
-```bash
-npx wrangler whoami
-```
+Como o site é estático, essas variáveis são usadas **durante o build**. Alterar
+somente variáveis de runtime no painel Cloudflare não modifica o HTML já publicado.
+Os endereços absolutos finais aparecem nos arquivos gerados, derivados do ambiente.
 
-## 3. Ver no seu computador
+## Verificar e visualizar
 
-```bash
+```powershell
+npm test
+npm run build
+npm run check
 npm run dev
 ```
 
-Abra http://localhost:8787/index-cme. Para parar, `Ctrl+C` no terminal.
+`npm test` testa troca de domínio, validação das variáveis, exclusão do histórico e
+preservação dos ajustes editoriais. `npm run check` executa o build e um dry-run do
+Wrangler. `npm run dev` também gera a build e abre o servidor local, normalmente em
+http://localhost:8787/. Os caminhos antigos redirecionam para a raiz com HTTP 301.
 
-## 4. Conferir sem publicar
+## GitHub Actions
 
-```bash
-npm run check
-```
+Em **Settings → Secrets and variables → Actions**, mantenha:
 
-Simula a publicação e mostra quantos arquivos seriam enviados. Não envia nada.
+| Tipo | Nome | Uso |
+|---|---|---|
+| Variable | `SITE_URL` | Origem pública do ambiente |
+| Variable | `CONTACT_EMAIL` | Contato institucional |
+| Secret | `CLOUDFLARE_API_TOKEN` | Publicação do Worker |
 
-## 5. Publicar
+As duas variáveis já foram cadastradas no repositório durante esta preparação.
+O segredo de deploy já existia. O workflow `.github/workflows/deploy.yml` recebe
+as variáveis, executa os testes e publica a cada push na `main`. Também aceita
+execução manual pela aba Actions. Nenhum valor de domínio é fixado no workflow.
 
-```bash
+## Ativar o domínio de produção
+
+1. Confirmar que a zona do hostname definido em `SITE_URL` está ativa na conta
+   Cloudflare utilizada pelo projeto e que os nameservers estão delegados corretamente.
+2. No Worker **lp-cme → Domains → Add → Custom domain**, cadastrar o hostname de
+   `SITE_URL`. A Cloudflare gerencia a associação DNS e o certificado. Verificar
+   antes se há registros existentes que entram em conflito.
+3. Confirmar que o domínio resolve publicamente e que o certificado está ativo.
+4. Publicar a build e verificar a raiz, os redirects antigos, canonical, sitemap,
+   robots, imagens e navegação no hostname de produção.
+
+Na verificação de 26/10/2026, o hostname de produção não retornou A/AAAA público.
+A ativação DNS e a associação do domínio ao Worker precisam ser confirmadas antes
+que a publicação possa ser considerada acessível em produção.
+
+O domínio personalizado é administrado no painel, sem `route` ou `routes` fixos
+no Wrangler. Assim, trocar `SITE_URL` não altera DNS nem reassocia domínios
+automaticamente. A configuração de rotas no painel é suportada pelo
+[Wrangler](https://developers.cloudflare.com/workers/wrangler/configuration/).
+Para criar ou modificar essa associação são necessárias permissões na zona; o
+token do CI permanece restrito à publicação do Worker existente.
+
+## Publicar pelo computador
+
+```powershell
+npx wrangler whoami
 npm run deploy
 ```
 
-Publica o Worker `lp-cme` na conta Cloudflare de governanca@exponenciais.org.br.
-O endereço é `https://lp-cme.governanca-c8e.workers.dev/index-cme`.
+Se necessário, autentique com `npx wrangler login`. O projeto aponta para a conta
+Cloudflare já configurada. O Wrangler sempre executa `npm run build` antes do upload,
+inclusive quando chamado diretamente. O diretório publicado é `dist/`.
 
-## Publicação automática pela `main`
+Para conferir ou desfazer uma publicação:
 
-O workflow `.github/workflows/deploy.yml` executa `npm run deploy` a cada push na
-branch `main`. Ele também pode ser iniciado manualmente na aba **Actions** do GitHub.
-Para funcionar, o repositório precisa ter o segredo `CLOUDFLARE_API_TOKEN` com um
-token de API da Cloudflare limitado à conta acima e com permissão para editar Workers.
-O ID da conta está em `wrangler.jsonc`; nunca coloque o token no repositório.
-
-## 6. Domínio próprio (opcional)
-
-No painel da Cloudflare: **Workers & Pages → lp-cme → Settings → Domains & Routes → Add →
-Custom domain** e informe o domínio (ex.: `exponenciais.org.br`). O domínio precisa estar
-gerenciado pela Cloudflare.
-
-Se a página for morar num domínio que já tem outro site, use **Route** em vez de Custom domain,
-com o padrão `exponenciais.org.br/index-cme*`. Nesse caso, acrescente também a rota
-`exponenciais.org.br/assets/*`, onde ficam as fontes e imagens.
-
-## Comandos úteis
-
-| Comando | O que faz |
-|---|---|
-| `npx wrangler tail` | mostra ao vivo as requisições e erros do site publicado |
-| `npx wrangler deployments list` | lista as publicações feitas |
-| `npx wrangler rollback` | volta para a publicação anterior |
+```powershell
+npx wrangler deployments list
+npx wrangler rollback
+```

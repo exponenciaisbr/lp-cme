@@ -9,9 +9,8 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#F4522A">
 
-  <!-- Versão comparativa /index-hive: consolida o conteúdo duplicado em /index-cme.
-       Na troca do domínio ou da URL principal, atualizar canonical, og:url e todo o JSON-LD juntos. -->
-  <link rel="canonical" href="https://lp-cme.governanca-c8e.workers.dev/index-cme">
+  <!-- URLs absolutas e contato são preenchidos no build pelas variáveis de ambiente. -->
+  <link rel="canonical" href="{{SITE_URL}}/">
 
   <!-- Fontes utilizadas no primeiro quadro: título (600) e chamada (300). -->
   <link rel="preload" href="assets/fonts/just-sans-600.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,7 +22,7 @@
   <meta property="og:site_name" content="Centro para Mudanças Exponenciais (CMe)">
   <meta property="og:title" content="CMe | Centro para Mudanças Exponenciais no Brasil">
   <meta property="og:description" content="O CMe é o hub brasileiro do C4EC, incubado pelo Instituto Beja. Apoia mudanças sistêmicas com Pensamento Societal e Jornadas para Mudança Exponencial.">
-  <meta property="og:url" content="https://lp-cme.governanca-c8e.workers.dev/index-cme">
+  <meta property="og:url" content="{{SITE_URL}}/">
   <!-- Sem og:image/twitter:image até existir uma imagem social aprovada:
        a referência anterior a /og-image.jpg apontava para um arquivo inexistente. -->
   <meta name="twitter:card" content="summary">
@@ -39,19 +38,19 @@
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://lp-cme.governanca-c8e.workers.dev/#organization",
+      "@id": "{{SITE_URL}}/#organization",
       "name": "Centro para Mudanças Exponenciais",
       "alternateName": "CMe",
-      "url": "https://lp-cme.governanca-c8e.workers.dev/index-cme",
+      "url": "{{SITE_URL}}/",
       "description": "Hub brasileiro do Centre for Exponential Change (C4EC), incubado pelo Instituto Beja, que apoia lideranças que orquestram mudanças sistêmicas.",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://lp-cme.governanca-c8e.workers.dev/assets/img/favicon.png",
-        "contentUrl": "https://lp-cme.governanca-c8e.workers.dev/assets/img/favicon.png",
+        "url": "{{SITE_URL}}/assets/img/favicon.png",
+        "contentUrl": "{{SITE_URL}}/assets/img/favicon.png",
         "width": 128,
         "height": 128
       },
-      "email": "contato@exponenciais.org.br",
+      "email": "{{CONTACT_EMAIL}}",
       "sameAs": [
         "https://www.linkedin.com/company/centro-para-mudancas-exponenciais"
       ],
@@ -67,147 +66,147 @@
       ],
       "member": [
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/#fabio-tran"
+          "@id": "{{SITE_URL}}/#fabio-tran"
         },
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/#flavia-goulart"
+          "@id": "{{SITE_URL}}/#flavia-goulart"
         },
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/#inara-velasco"
+          "@id": "{{SITE_URL}}/#inara-velasco"
         },
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/#robert-parkinson"
+          "@id": "{{SITE_URL}}/#robert-parkinson"
         }
       ],
       "mainEntityOfPage": {
-        "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#webpage"
+        "@id": "{{SITE_URL}}/#webpage"
       }
     },
     {
       "@type": "WebSite",
-      "@id": "https://lp-cme.governanca-c8e.workers.dev/#website",
-      "url": "https://lp-cme.governanca-c8e.workers.dev/",
+      "@id": "{{SITE_URL}}/#website",
+      "url": "{{SITE_URL}}/",
       "name": "Centro para Mudanças Exponenciais",
       "alternateName": "CMe",
       "inLanguage": "pt-BR",
       "publisher": {
-        "@id": "https://lp-cme.governanca-c8e.workers.dev/#organization"
+        "@id": "{{SITE_URL}}/#organization"
       }
     },
     {
       "@type": "WebPage",
-      "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#webpage",
-      "url": "https://lp-cme.governanca-c8e.workers.dev/index-cme",
+      "@id": "{{SITE_URL}}/#webpage",
+      "url": "{{SITE_URL}}/",
       "name": "CMe | Centro para Mudanças Exponenciais no Brasil",
       "description": "O CMe é o hub brasileiro do C4EC, incubado pelo Instituto Beja. Apoia mudanças sistêmicas com Pensamento Societal e Jornadas para Mudança Exponencial.",
       "inLanguage": "pt-BR",
       "isPartOf": {
-        "@id": "https://lp-cme.governanca-c8e.workers.dev/#website"
+        "@id": "{{SITE_URL}}/#website"
       },
       "mainEntity": {
-        "@id": "https://lp-cme.governanca-c8e.workers.dev/#organization"
+        "@id": "{{SITE_URL}}/#organization"
       },
       "publisher": {
-        "@id": "https://lp-cme.governanca-c8e.workers.dev/#organization"
+        "@id": "{{SITE_URL}}/#organization"
       },
       "about": [
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/#organization"
+          "@id": "{{SITE_URL}}/#organization"
         },
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#termo-pensamento-societal"
+          "@id": "{{SITE_URL}}/#termo-pensamento-societal"
         }
       ],
       "hasPart": [
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#inicio",
+          "@id": "{{SITE_URL}}/#inicio",
           "name": "Centro para Mudanças Exponenciais (CMe)"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#quem-somos",
+          "@id": "{{SITE_URL}}/#quem-somos",
           "name": "Quem somos"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#por-que-agora",
+          "@id": "{{SITE_URL}}/#por-que-agora",
           "name": "Por que agir agora?"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#sul-global",
+          "@id": "{{SITE_URL}}/#sul-global",
           "name": "Uma rede do Sul Global que mostra o que é possível ser feito em escala."
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#pensamento-societal",
+          "@id": "{{SITE_URL}}/#pensamento-societal",
           "name": "Pensamento Societal"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#orquestradores",
+          "@id": "{{SITE_URL}}/#orquestradores",
           "name": "Orquestradores de Sistemas"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#jornadas",
+          "@id": "{{SITE_URL}}/#jornadas",
           "name": "Jornadas para Mudança Exponencial são a nossa principal forma de atuação"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#parceiros",
+          "@id": "{{SITE_URL}}/#parceiros",
           "name": "Organizações brasileiras atualmente em jornada"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#parceiros-globais",
+          "@id": "{{SITE_URL}}/#parceiros-globais",
           "name": "Parceiros globais do C4EC que apoiam o trabalho no Brasil:"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#depoimentos",
+          "@id": "{{SITE_URL}}/#depoimentos",
           "name": "O que dizem sobre o CMe"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#equipe",
+          "@id": "{{SITE_URL}}/#equipe",
           "name": "Conheça o time do CMe"
         },
         {
           "@type": "WebPageElement",
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#apoie",
+          "@id": "{{SITE_URL}}/#apoie",
           "name": "Apoie o CMe"
         }
       ],
       "mentions": [
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#livros"
+          "@id": "{{SITE_URL}}/#livros"
         },
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/#fabio-tran"
+          "@id": "{{SITE_URL}}/#fabio-tran"
         },
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/#flavia-goulart"
+          "@id": "{{SITE_URL}}/#flavia-goulart"
         },
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/#inara-velasco"
+          "@id": "{{SITE_URL}}/#inara-velasco"
         },
         {
-          "@id": "https://lp-cme.governanca-c8e.workers.dev/#robert-parkinson"
+          "@id": "{{SITE_URL}}/#robert-parkinson"
         }
       ]
     },
     {
       "@type": "DefinedTerm",
-      "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#termo-pensamento-societal",
+      "@id": "{{SITE_URL}}/#termo-pensamento-societal",
       "name": "Pensamento Societal",
-      "url": "https://lp-cme.governanca-c8e.workers.dev/index-cme#pensamento-societal",
+      "url": "{{SITE_URL}}/#pensamento-societal",
       "description": "Abordagem que identifica as condições necessárias para impulsionar mudanças exponenciais com escala, velocidade e sustentação."
     },
     {
       "@type": "ItemList",
-      "@id": "https://lp-cme.governanca-c8e.workers.dev/index-cme#livros",
+      "@id": "{{SITE_URL}}/#livros",
       "name": "Trilogia de livros aprofunda os fundamentos do Pensamento Societal",
       "numberOfItems": 3,
       "itemListElement": [
@@ -220,7 +219,7 @@
             "description": "Pensando a Escala provoca a reflexão sobre como dimensionar problemas sociais e desenhar soluções à sua altura",
             "inLanguage": "pt-BR",
             "url": "https://societalthinking.org/wp-content/uploads/2026/08/Think-Scale-PORTUGUESE.pdf",
-            "image": "https://lp-cme.governanca-c8e.workers.dev/assets/img/capa-do-livro-pensando-a-escala.webp",
+            "image": "{{SITE_URL}}/assets/img/capa-do-livro-pensando-a-escala.webp",
             "encoding": {
               "@type": "MediaObject",
               "contentUrl": "https://societalthinking.org/wp-content/uploads/2026/08/Think-Scale-PORTUGUESE.pdf",
@@ -237,7 +236,7 @@
             "description": "Pensando a Velocidade trata de antecipar mudanças e agir no mesmo ritmo dos desafios",
             "inLanguage": "pt-BR",
             "url": "https://societalthinking.org/wp-content/uploads/2026/04/Think-SPEED-PORTUGUESE.pdf",
-            "image": "https://lp-cme.governanca-c8e.workers.dev/assets/img/capa-do-livro-pensando-a-velocidade.webp",
+            "image": "{{SITE_URL}}/assets/img/capa-do-livro-pensando-a-velocidade.webp",
             "encoding": {
               "@type": "MediaObject",
               "contentUrl": "https://societalthinking.org/wp-content/uploads/2026/04/Think-SPEED-PORTUGUESE.pdf",
@@ -254,7 +253,7 @@
             "description": "Pensando a Sustentação discute como tornar transformações duradouras e fortalecer a agência das pessoas ao longo do tempo.",
             "inLanguage": "pt-BR",
             "url": "https://societalthinking.org/wp-content/uploads/2026/04/Think-SUSTAIN-PORTUGUESE.pdf",
-            "image": "https://lp-cme.governanca-c8e.workers.dev/assets/img/capa-do-livro-pensando-a-sustentacao.webp",
+            "image": "{{SITE_URL}}/assets/img/capa-do-livro-pensando-a-sustentacao.webp",
             "encoding": {
               "@type": "MediaObject",
               "contentUrl": "https://societalthinking.org/wp-content/uploads/2026/04/Think-SUSTAIN-PORTUGUESE.pdf",
@@ -266,43 +265,43 @@
     },
     {
       "@type": "Person",
-      "@id": "https://lp-cme.governanca-c8e.workers.dev/#fabio-tran",
+      "@id": "{{SITE_URL}}/#fabio-tran",
       "name": "Fabio Tran",
       "jobTitle": "Diretor",
       "affiliation": {
-        "@id": "https://lp-cme.governanca-c8e.workers.dev/#organization"
+        "@id": "{{SITE_URL}}/#organization"
       },
-      "image": "https://lp-cme.governanca-c8e.workers.dev/assets/img/equipe-fabio-tran.webp"
+      "image": "{{SITE_URL}}/assets/img/equipe-fabio-tran.webp"
     },
     {
       "@type": "Person",
-      "@id": "https://lp-cme.governanca-c8e.workers.dev/#flavia-goulart",
+      "@id": "{{SITE_URL}}/#flavia-goulart",
       "name": "Flávia Goulart Jesus Pinto",
       "jobTitle": "Gerente de Redes e Parcerias",
       "affiliation": {
-        "@id": "https://lp-cme.governanca-c8e.workers.dev/#organization"
+        "@id": "{{SITE_URL}}/#organization"
       },
-      "image": "https://lp-cme.governanca-c8e.workers.dev/assets/img/equipe-flavia-goulart.webp"
+      "image": "{{SITE_URL}}/assets/img/equipe-flavia-goulart.webp"
     },
     {
       "@type": "Person",
-      "@id": "https://lp-cme.governanca-c8e.workers.dev/#inara-velasco",
+      "@id": "{{SITE_URL}}/#inara-velasco",
       "name": "Inara Arruda Velasco",
       "jobTitle": "Analista",
       "affiliation": {
-        "@id": "https://lp-cme.governanca-c8e.workers.dev/#organization"
+        "@id": "{{SITE_URL}}/#organization"
       },
-      "image": "https://lp-cme.governanca-c8e.workers.dev/assets/img/equipe-inara-velasco.webp"
+      "image": "{{SITE_URL}}/assets/img/equipe-inara-velasco.webp"
     },
     {
       "@type": "Person",
-      "@id": "https://lp-cme.governanca-c8e.workers.dev/#robert-parkinson",
+      "@id": "{{SITE_URL}}/#robert-parkinson",
       "name": "Robert Parkinson",
       "jobTitle": "PMO",
       "affiliation": {
-        "@id": "https://lp-cme.governanca-c8e.workers.dev/#organization"
+        "@id": "{{SITE_URL}}/#organization"
       },
-      "image": "https://lp-cme.governanca-c8e.workers.dev/assets/img/equipe-robert-parkinson.webp"
+      "image": "{{SITE_URL}}/assets/img/equipe-robert-parkinson.webp"
     }
   ]
 }
@@ -1446,7 +1445,7 @@
         </ul>
 
         <div class="join-actions">
-          <a class="btn btn-light" href="mailto:contato@exponenciais.org.br">Entre em contato e saiba mais.</a>
+          <a class="btn btn-light" href="mailto:{{CONTACT_EMAIL}}">Entre em contato e saiba mais.</a>
         </div>
       </div>
     </section>
@@ -1496,9 +1495,9 @@
         <div>
           <h4>Contato</h4>
           <ul class="footer-list">
-            <li><a href="mailto:contato@exponenciais.org.br">
+            <li><a href="mailto:{{CONTACT_EMAIL}}">
               <svg viewBox="0 0 24 24" fill="none" stroke="#F4522A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6" stroke="#2D9688"/></svg>
-              contato@exponenciais.org.br</a></li>
+              {{CONTACT_EMAIL}}</a></li>
             <li><!-- PENDENTE: link da newsletter -->
               <a href="#newsletter" aria-describedby="nota-newsletter">
               <svg viewBox="0 0 24 24" fill="none" stroke="#F4522A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h13a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2V6z"/><path d="M19 8h1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1M8 10h6M8 14h4" stroke="#2D9688"/></svg>
@@ -1522,7 +1521,7 @@
 
       <div class="footer-bottom">
         <span>© <span id="ano">2026</span> Centro para Mudanças Exponenciais (CMe).</span>
-        <span>exponenciais.org.br</span>
+        <span>{{SITE_HOST}}</span>
       </div>
     </div>
   </footer>

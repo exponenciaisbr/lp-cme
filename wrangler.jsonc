@@ -3,10 +3,15 @@
   "name": "lp-cme",
   "account_id": "c8e1fc4bfe2a0a591022a58cb8d7096e",
   "compatibility_date": "2026-10-01",
-  // Site 100% estático: o Worker só serve os arquivos de ./public.
-  // public/index-cme.html responde em /index-cme (sem extensão, sem barra final).
+  // O build injeta as variáveis de ambiente nos arquivos estáticos.
+  "build": {
+    "command": "npm run build",
+    "watch_dir": ["public", "scripts"]
+  },
+  // Apenas dist/ é publicado. O histórico fica fora de public/ e de dist/.
+  // O domínio personalizado é gerenciado no painel Cloudflare, sem URL fixa aqui.
   "assets": {
-    "directory": "./public",
+    "directory": "./dist",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   },

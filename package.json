@@ -2,8 +2,13 @@
   "name": "lp-cme",
   "version": "0.1.0",
   "private": true,
-  "description": "Landing page do Centro para Mudanças Exponenciais (CMe), servida em /index-cme na Cloudflare.",
+  "description": "Landing page do Centro para Mudanças Exponenciais (CMe), servida na raiz pela Cloudflare.",
+  "engines": {
+    "node": ">=22.9.0"
+  },
   "scripts": {
+    "build": "node --env-file-if-exists=.env.local scripts/build.mjs",
+    "test": "node --test scripts/build.test.mjs",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "check": "wrangler deploy --dry-run --outdir .wrangler/dry-run"

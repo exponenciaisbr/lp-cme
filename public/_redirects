@@ -1,2 +1,9 @@
-# A raiz leva para a landing do CMe
-/  /index-cme  302
+# Endereços anteriores convergem para a página inicial.
+/index-cme       /  301
+/index-cme/      /  301
+/index-cme.html  /  301
+/index-hive      /  301
+/index-hive/     /  301
+/index-hive.html /  301
+/index          /  301
+/index.html     /  301
