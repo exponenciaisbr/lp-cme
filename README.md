@@ -61,8 +61,6 @@ publicar diretamente deste computador, use `npm run deploy`.
 
 - **Imagem de compartilhamento** (`og-image.jpg`, 1200×630): colocar em `public/og-image.jpg`.
   É ela que aparece quando o link é colado no WhatsApp/LinkedIn.
-- **Imagem da seção "Por que agir agora?"**: hoje é um espaço reservado.
-- **Imagem da seção "Orquestradores de Sistemas"**: hoje é um espaço reservado.
 - **Link da newsletter** no rodapé: hoje aponta para `#newsletter`.
 - **URLs dos sites dos parceiros de jornada**: confirmar antes de publicar.
 - **Domínio**: as metatags de compartilhamento usam `https://exponenciais.org.br/index-cme`.

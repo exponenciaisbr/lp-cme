@@ -14,8 +14,8 @@
   <link rel="canonical" href="https://lp-cme.governanca-c8e.workers.dev/index-cme">
 
   <!-- Fontes utilizadas no primeiro quadro: título (600) e chamada (300). -->
-  <link rel="preload" href="/assets/fonts/just-sans-600.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/just-sans-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/just-sans-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/just-sans-300.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Metadados sociais coerentes com a URL principal e com o texto da página. -->
   <meta property="og:type" content="website">
@@ -30,7 +30,7 @@
   <meta name="twitter:title" content="CMe | Centro para Mudanças Exponenciais no Brasil">
   <meta name="twitter:description" content="O CMe é o hub brasileiro do C4EC, incubado pelo Instituto Beja. Apoia mudanças sistêmicas com Pensamento Societal e Jornadas para Mudança Exponencial.">
 
-  <link rel="icon" type="image/png" sizes="128x128" href="/assets/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/img/favicon.png">
 
   <!-- Entidades e recursos descritos no conteúdo visível; nenhum texto depende deste script. -->
   <script type="application/ld+json">
@@ -316,22 +316,22 @@
        ========================================================= */
     @font-face {
       font-family: "JUST Sans";
-      src: url("/assets/fonts/just-sans-300.woff2") format("woff2");
+      src: url("assets/fonts/just-sans-300.woff2") format("woff2");
       font-weight: 300; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: "JUST Sans";
-      src: url("/assets/fonts/just-sans-400.woff2") format("woff2");
+      src: url("assets/fonts/just-sans-400.woff2") format("woff2");
       font-weight: 400; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: "JUST Sans";
-      src: url("/assets/fonts/just-sans-500.woff2") format("woff2");
+      src: url("assets/fonts/just-sans-500.woff2") format("woff2");
       font-weight: 500; font-style: normal; font-display: swap;
     }
     @font-face {
       font-family: "JUST Sans";
-      src: url("/assets/fonts/just-sans-600.woff2") format("woff2");
+      src: url("assets/fonts/just-sans-600.woff2") format("woff2");
       font-weight: 600; font-style: normal; font-display: swap;
     }
 
@@ -615,6 +615,11 @@
     @media (min-width: 900px) { .split { grid-template-columns: 1.1fr 1fr; gap: var(--s-8); } .split--img-left > .split-media { order: -1; } }
     .split-text { max-width: 52ch; }
     .split-media .ph--photo { width: 100%; }
+    .split-media img { width: 100%; height: auto; border-radius: var(--radius-lg); }
+    /* Bloco sem imagem: título à esquerda, texto à direita */
+    .split--statement { align-items: start; }
+    @media (min-width: 900px) { .split--statement { grid-template-columns: 1fr 1.35fr; } }
+    .split--statement .split-text:last-child { max-width: 60ch; }
 
     .section--coral-tint { background: var(--coral-10); }
     .section--teal { background: var(--teal); color: var(--black); }
@@ -903,8 +908,8 @@
       color: var(--text-3); font-size: .875rem;
     }
   </style>
-  <link rel="stylesheet" href="/motion.css">
-  <script src="/motion.js" defer></script>
+  <link rel="stylesheet" href="motion.css">
+  <script src="motion.js" defer></script>
 </head>
 
 <body>
@@ -915,7 +920,7 @@
     <div class="container">
       <nav class="nav" aria-label="Navegação principal">
         <a class="brand" href="#inicio" aria-label="Centro para Mudanças Exponenciais — início">
-          <img src="/assets/img/logo-centro-para-mudancas-exponenciais.webp" alt="Centro para Mudanças Exponenciais" width="400" height="74" loading="eager" decoding="async">
+          <img src="assets/img/logo-centro-para-mudancas-exponenciais.webp" alt="Centro para Mudanças Exponenciais" width="400" height="74" loading="eager" decoding="async">
         </a>
 
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
@@ -982,14 +987,14 @@
         <div class="boxes">
           <!-- BOX 1 -->
           <article class="box" aria-labelledby="titulo-c4ec">
-            <img class="box-logo" src="/assets/img/logo-centre-for-exponential-change.webp" alt="Centre for Exponential Change" width="340" height="126" loading="lazy" decoding="async">
+            <img class="box-logo" src="assets/img/logo-centre-for-exponential-change.webp" alt="Centre for Exponential Change" width="340" height="126" loading="lazy" decoding="async">
             <h3 id="titulo-c4ec"><a href="https://centreforexponentialchange.org/" target="_blank" rel="noopener">Centre for Exponential Change (C4EC)</a></h3>
             <p>É um hub de ação global que reimagina como resolvemos os desafios sociais mais urgentes do mundo. Reúne diversos agentes que apoiam a jornada de Orquestradores de Sistemas, ajudando-os a solucionar problemas sociais mais rápido e em maior escala.</p>
           </article>
 
           <!-- BOX 2 -->
           <article class="box box--teal" aria-labelledby="titulo-beja">
-            <img class="box-logo" src="/assets/img/logo-instituto-beja.webp" alt="Instituto Beja" width="400" height="91" loading="lazy" decoding="async">
+            <img class="box-logo" src="assets/img/logo-instituto-beja.webp" alt="Instituto Beja" width="400" height="91" loading="lazy" decoding="async">
             <h3 id="titulo-beja"><a href="https://institutobeja.org/" target="_blank" rel="noopener">Instituto Beja</a></h3>
             <p>Tem como missão promover o impacto positivo no campo da filantropia, fomentando inovação, colaboração, eficácia e o engajamento da sociedade civil, do setor privado e do governo na resolução de problemas sistêmicos.</p>
           </article>
@@ -1000,16 +1005,14 @@
     <!-- ======================= MÓDULO 3 — POR QUE AGIR AGORA? ======================= -->
     <section class="section--coral-tint" id="por-que-agora" aria-labelledby="titulo-por-que">
       <div class="container">
-        <div class="split">
+        <div class="split split--statement">
           <div class="split-text">
             <p class="eyebrow">Por que existimos</p>
             <h2 id="titulo-por-que">Por que agir agora?</h2>
-            <p class="lead" style="margin-top: var(--s-2)">Vivemos um momento em que os desafios da humanidade, cada vez mais complexos, se combinam e se aceleram mutuamente. Enquanto isso, a maior parte das soluções que desenvolvemos para esses desafios ainda não responde com a mesma força e cadência.</p>
-            <p class="lead">É um contexto que exige uma nova abordagem de transformação, capaz de se propagar no mesmo ritmo dos problemas que enfrentamos, a fim de solucioná-los.</p>
           </div>
-          <div class="split-media">
-            <!-- PENDENTE: imagem a ser enviada posteriormente -->
-            <div class="ph ph--photo" role="img" aria-label="Espaço reservado para imagem da seção Por que agir agora">Imagem<br>(a enviar posteriormente)</div>
+          <div class="split-text">
+            <p class="lead">Vivemos um momento em que os desafios da humanidade, cada vez mais complexos, se combinam e se aceleram mutuamente. Enquanto isso, a maior parte das soluções que desenvolvemos para esses desafios ainda não responde com a mesma força e cadência.</p>
+            <p class="lead">É um contexto que exige uma nova abordagem de transformação, capaz de se propagar no mesmo ritmo dos problemas que enfrentamos, a fim de solucioná-los.</p>
           </div>
         </div>
       </div>
@@ -1032,7 +1035,7 @@
             <button class="video-play" type="button"
                     data-video="https://www.youtube-nocookie.com/embed/ZnsgdXNTosA?autoplay=1&rel=0"
                     aria-label="Reproduzir o vídeo: conversa com Sanjay Purohit, CEO e curador-chefe do C4EC">
-              <img src="/assets/img/video-sanjay-purohit.webp" alt="" width="900" height="506" loading="lazy" decoding="async">
+              <img src="assets/img/video-sanjay-purohit.webp" alt="" width="900" height="506" loading="lazy" decoding="async">
               <span class="video-play-icon" aria-hidden="true">
                 <svg viewBox="0 0 68 48"><path d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.6a8.6 8.6 0 0 0-6 6.1A90 90 0 0 0 0 24a90 90 0 0 0 1.5 16.3 8.6 8.6 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.6a8.6 8.6 0 0 0 6-6.1A90 90 0 0 0 68 24a90 90 0 0 0-1.5-16.3z" fill="#F4522A"/><path d="M27 34l18-10-18-10z" fill="#fff"/></svg>
               </span>
@@ -1062,7 +1065,7 @@
               <div class="mm-col">
                 <h3>A escala imposta de cima para baixo produz monocultura.</h3>
                 <!-- Foto da apresentação institucional (slides 19 e 21), na resolução original do PDF -->
-                <img class="mm-foto" src="/assets/img/monocultura.webp" width="590" height="369"
+                <img class="mm-foto" src="assets/img/monocultura.webp" width="590" height="369"
                      alt="Plantação em monocultura: fileiras idênticas de uma única cultura se estendendo até o horizonte." loading="lazy" decoding="async">
 
                 <p>O que já funciona costuma ser um piloto bem-sucedido em um contexto muito específico. Replicá-lo em outros contextos não dá conta da diversidade de um território continental como o Brasil e a diversidade passa a ser tratada como desafio operacional.</p>
@@ -1070,7 +1073,7 @@
               <div class="mm-col">
                 <h3>A escala que emerge em rede produz floresta tropical.</h3>
                 <!-- Foto da apresentação institucional (slides 20 e 21), na resolução original do PDF -->
-                <img class="mm-foto" src="/assets/img/floresta-tropical.webp" width="960" height="600"
+                <img class="mm-foto" src="assets/img/floresta-tropical.webp" width="960" height="600"
                      alt="Floresta tropical densa, com muitas espécies de plantas convivendo lado a lado." loading="lazy" decoding="async">
 
                 <p>O design para escala é pensado desde o início, restaurando a agência de cada ator em seu contexto. Espaços de coconstrução em rede compartilham o conhecimento existente e distribuem a capacidade de resolver por todo o ecossistema. Assim a escala emerge de forma orgânica e a diversidade se torna nosso principal ativo.</p>
@@ -1134,7 +1137,7 @@
             <p class="books-intro">As obras têm curadoria de Sanjay Purohit, Anjali Hans e Naveen Varshan e reúnem ideias de mais de 150 pensadores, lideranças e financiadores.</p>
             <div class="books">
               <div class="book">
-                <img class="book-cover" src="/assets/img/capa-do-livro-pensando-a-escala.webp" alt="Capa do livro Pensando a escala" width="400" height="623" loading="lazy" decoding="async">
+                <img class="book-cover" src="assets/img/capa-do-livro-pensando-a-escala.webp" alt="Capa do livro Pensando a escala" width="400" height="623" loading="lazy" decoding="async">
                 <h4>Pensando a Escala</h4>
                 <p>Pensando a Escala provoca a reflexão sobre como dimensionar problemas sociais e desenhar soluções à sua altura</p>
                 <a class="dl" href="https://societalthinking.org/wp-content/uploads/2026/08/Think-Scale-PORTUGUESE.pdf" target="_blank" rel="noopener" type="application/pdf" hreflang="pt-BR" aria-label="Baixar o PDF de Pensando a Escala">
@@ -1143,7 +1146,7 @@
                 </a>
               </div>
               <div class="book">
-                <img class="book-cover" src="/assets/img/capa-do-livro-pensando-a-velocidade.webp" alt="Capa do livro Pensando a velocidade" width="400" height="628" loading="lazy" decoding="async">
+                <img class="book-cover" src="assets/img/capa-do-livro-pensando-a-velocidade.webp" alt="Capa do livro Pensando a velocidade" width="400" height="628" loading="lazy" decoding="async">
                 <h4>Pensando a Velocidade</h4>
                 <p>Pensando a Velocidade trata de antecipar mudanças e agir no mesmo ritmo dos desafios</p>
                 <a class="dl" href="https://societalthinking.org/wp-content/uploads/2026/04/Think-SPEED-PORTUGUESE.pdf" target="_blank" rel="noopener" type="application/pdf" hreflang="pt-BR" aria-label="Baixar o PDF de Pensando a Velocidade">
@@ -1152,7 +1155,7 @@
                 </a>
               </div>
               <div class="book">
-                <img class="book-cover" src="/assets/img/capa-do-livro-pensando-a-sustentacao.webp" alt="Capa do livro Pensando a sustentação" width="400" height="625" loading="lazy" decoding="async">
+                <img class="book-cover" src="assets/img/capa-do-livro-pensando-a-sustentacao.webp" alt="Capa do livro Pensando a sustentação" width="400" height="625" loading="lazy" decoding="async">
                 <h4>Pensando a Sustentação</h4>
                 <p>Pensando a Sustentação discute como tornar transformações duradouras e fortalecer a agência das pessoas ao longo do tempo.</p>
                 <a class="dl" href="https://societalthinking.org/wp-content/uploads/2026/04/Think-SUSTAIN-PORTUGUESE.pdf" target="_blank" rel="noopener" type="application/pdf" hreflang="pt-BR" aria-label="Baixar o PDF de Pensando a Sustentação">
@@ -1176,8 +1179,7 @@
             <p class="lead" style="margin-top: var(--s-2)">Lideranças na sociedade civil e no governo, capazes de articular diferentes atores e recursos para enfrentar desafios estruturais de forma colaborativa. Afinal, problemas que avançam de forma exponencial precisam ser enfrentados em conjunto, com a escala e a rapidez necessárias.</p>
           </div>
           <div class="split-media">
-            <!-- PENDENTE: imagem à esquerda, a ser enviada -->
-            <div class="ph ph--photo ph--neutral" role="img" aria-label="Espaço reservado para imagem dos Orquestradores de Sistemas">Imagem<br>(a enviar posteriormente)</div>
+            <img src="assets/img/orquestradores-de-sistemas.webp" alt="Participantes reunidos em sala durante a fase de design estratégico de uma Jornada para Mudança Exponencial" width="1120" height="840" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -1238,7 +1240,7 @@
         <!-- Confirmar as URLs dos sites de cada organização antes de publicar -->
         <ul class="partners">
           <li class="partner">
-            <img class="partner-logo" src="/assets/img/parceiro-conexsus.webp" alt="Conexsus" width="380" height="77" loading="lazy" decoding="async">
+            <img class="partner-logo" src="assets/img/parceiro-conexsus.webp" alt="Conexsus" width="380" height="77" loading="lazy" decoding="async">
             <h3>Conexsus</h3>
             <p>A organização tem um trabalho orientado por uma visão de impacto, na qual a sociobioeconomia contribui para a conservação e regeneração dos biomas e para a mitigação e adaptação às mudanças climáticas, impactando diretamente o bem-estar de povos indígenas, comunidades locais e agricultores familiares.</p>
             <a class="more" href="https://www.conexsus.org/" target="_blank" rel="noopener">Conheça a Conexsus
@@ -1246,7 +1248,7 @@
             </a>
           </li>
           <li class="partner">
-            <img class="partner-logo" src="/assets/img/parceiro-visao-coop.webp" alt="Visão Coop" width="380" height="125" loading="lazy" decoding="async">
+            <img class="partner-logo" src="assets/img/parceiro-visao-coop.webp" alt="Visão Coop" width="380" height="125" loading="lazy" decoding="async">
             <h3>Visão Coop</h3>
             <p>Iniciativa dedicada ao enfrentamento da crise climática por meio da articulação de conhecimento, tecnologia e ação coletiva na América do Sul. Atua no mapeamento e na ativação de tecnologias voltadas à regeneração de biomas e à adaptação climática em ecossistemas e periferias urbanas, promovendo respostas estruturais e territorializadas aos desafios climáticos.</p>
             <a class="more" href="https://visaocoop.org/" target="_blank" rel="noopener">Conheça a Visão Coop
@@ -1254,7 +1256,7 @@
             </a>
           </li>
           <li class="partner">
-            <img class="partner-logo" src="/assets/img/parceiro-sas-brasil.webp" alt="SAS Brasil" width="269" height="130" loading="lazy" decoding="async">
+            <img class="partner-logo" src="assets/img/parceiro-sas-brasil.webp" alt="SAS Brasil" width="269" height="130" loading="lazy" decoding="async">
             <h3>SAS Brasil</h3>
             <p>A organização atua para transformar o acesso à saúde especializada no país. Combina tecnologia, inovação e impacto social em um modelo que une atendimento presencial e digital, e suas ações já beneficiaram 1,5 milhão de pessoas em todas as regiões do Brasil.</p>
             <a class="more" href="https://www.sasbrasil.org.br/" target="_blank" rel="noopener">Conheça a SAS Brasil
@@ -1262,7 +1264,7 @@
             </a>
           </li>
           <li class="partner">
-            <img class="partner-logo" src="/assets/img/parceiro-desenrola-e-nao-me-enrola.webp" alt="Desenrola e Não Me Enrola" width="162" height="130" loading="lazy" decoding="async">
+            <img class="partner-logo" src="assets/img/parceiro-desenrola-e-nao-me-enrola.webp" alt="Desenrola e Não Me Enrola" width="162" height="130" loading="lazy" decoding="async">
             <h3>Desenrola e Não Me Enrola</h3>
             <p>Organização de Jornalismo de Soluções e Alfabetização Midiática Antirracista, trabalha para desenvolver, implementar e escalar tecnologias informativas e educacionais focadas na prevenção e combate das desigualdades informacionais.</p>
             <a class="more" href="https://desenrolaenaomenrola.com.br/" target="_blank" rel="noopener">Conheça o Desenrola e Não Me Enrola
@@ -1270,7 +1272,7 @@
             </a>
           </li>
           <li class="partner">
-            <img class="partner-logo" src="/assets/img/parceiro-mapbiomas.webp" alt="MapBiomas" width="190" height="132" loading="lazy" decoding="async">
+            <img class="partner-logo" src="assets/img/parceiro-mapbiomas.webp" alt="MapBiomas" width="190" height="132" loading="lazy" decoding="async">
             <h3>MapBiomas</h3>
             <p>Com base em ciência aberta e colaborativa, a rede alimenta uma plataforma que integra imagens de satélite, aprendizado de máquina e computação em nuvem. Todos os dados, mapas, métodos e códigos são disponibilizados de forma pública e gratuita.</p>
             <a class="more" href="https://brasil.mapbiomas.org/" target="_blank" rel="noopener">Conheça o MapBiomas
@@ -1278,7 +1280,7 @@
             </a>
           </li>
           <li class="partner">
-            <img class="partner-logo" src="/assets/img/parceiro-serenas.webp" alt="Serenas" width="380" height="104" loading="lazy" decoding="async">
+            <img class="partner-logo" src="assets/img/parceiro-serenas.webp" alt="Serenas" width="380" height="104" loading="lazy" decoding="async">
             <h3>Serenas</h3>
             <p>A organização atua para prevenir violências baseadas em gênero no Brasil.</p>
             <p>Em parceria com governos, organismos internacionais e organizações da sociedade civil, baseia suas atividades em três pilares: educação para prevenção da violência, qualificação de agentes públicos para acolhimento humanizado às sobreviventes de violência sexual e doméstica, e produção de conhecimento.</p>
@@ -1301,32 +1303,32 @@
       <!-- Logos em ordem alfabética. A Catálise veio na versão branca (para fundo escuro), por isso o cartão escuro. -->
       <div class="marquee" aria-label="Logos dos parceiros globais do C4EC">
         <ul class="marquee-track" id="logos-globais">
-          <li class="logo-tile"><img src="/assets/img/global-apurva-ai.webp" alt="Apurva.ai" width="280" height="53" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-the-bridgespan-group.webp" alt="The Bridgespan Group" width="280" height="90" loading="lazy" decoding="async"></li>
-          <li class="logo-tile logo-tile--escuro"><img src="/assets/img/global-catalise.webp" alt="Catálise" width="212" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-catalyst-now.webp" alt="Catalyst Now" width="153" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-centre-for-digital-public-infrastructure-cdpi.webp" alt="Centre for Digital Public Infrastructure (CDPI)" width="102" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-collective-change-lab.webp" alt="Collective Change Lab" width="131" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-centre-for-open-societal-systems-coss.webp" alt="Centre for Open Societal Systems (COSS)" width="77" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-dalberg.webp" alt="Dalberg" width="280" height="84" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-dasra.webp" alt="Dasra" width="112" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-digital-public-goods-alliance.webp" alt="Digital Public Goods Alliance" width="148" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-egov-foundation.webp" alt="eGov Foundation" width="280" height="105" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-ekstep.webp" alt="EkStep" width="280" height="96" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-futurar.webp" alt="Futurar" width="280" height="62" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-giving-tuesday.webp" alt="Giving Tuesday" width="271" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-indihood.webp" alt="indihood" width="280" height="45" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-integral.webp" alt="Integral" width="280" height="97" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-navadhiti.webp" alt="Navadhiti" width="132" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-networks-for-humanity.webp" alt="Networks for Humanity" width="280" height="68" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-project-echo.webp" alt="Project ECHO" width="112" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-sattva.webp" alt="Sattva" width="203" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-shikshalokam.webp" alt="ShikshaLokam" width="161" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-tekdi.webp" alt="TEKDI" width="137" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-the-wellbeing-project.webp" alt="The Wellbeing Project" width="213" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-uvu-africa.webp" alt="UVU Africa" width="155" height="112" loading="lazy" decoding="async"></li>
-          <li class="logo-tile logo-tile--wasan"><img src="/assets/img/global-wasan-network.webp" alt="Wasan Network" width="280" height="106" loading="lazy" decoding="async"></li>
-          <li class="logo-tile"><img src="/assets/img/global-wings.webp" alt="WINGS" width="158" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-apurva-ai.webp" alt="Apurva.ai" width="280" height="53" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-the-bridgespan-group.webp" alt="The Bridgespan Group" width="280" height="90" loading="lazy" decoding="async"></li>
+          <li class="logo-tile logo-tile--escuro"><img src="assets/img/global-catalise.webp" alt="Catálise" width="212" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-catalyst-now.webp" alt="Catalyst Now" width="153" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-centre-for-digital-public-infrastructure-cdpi.webp" alt="Centre for Digital Public Infrastructure (CDPI)" width="102" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-collective-change-lab.webp" alt="Collective Change Lab" width="131" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-centre-for-open-societal-systems-coss.webp" alt="Centre for Open Societal Systems (COSS)" width="77" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-dalberg.webp" alt="Dalberg" width="280" height="84" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-dasra.webp" alt="Dasra" width="112" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-digital-public-goods-alliance.webp" alt="Digital Public Goods Alliance" width="148" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-egov-foundation.webp" alt="eGov Foundation" width="280" height="105" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-ekstep.webp" alt="EkStep" width="280" height="96" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-futurar.webp" alt="Futurar" width="280" height="62" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-giving-tuesday.webp" alt="Giving Tuesday" width="271" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-indihood.webp" alt="indihood" width="280" height="45" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-integral.webp" alt="Integral" width="280" height="97" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-navadhiti.webp" alt="Navadhiti" width="132" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-networks-for-humanity.webp" alt="Networks for Humanity" width="280" height="68" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-project-echo.webp" alt="Project ECHO" width="112" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-sattva.webp" alt="Sattva" width="203" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-shikshalokam.webp" alt="ShikshaLokam" width="161" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-tekdi.webp" alt="TEKDI" width="137" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-the-wellbeing-project.webp" alt="The Wellbeing Project" width="213" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-uvu-africa.webp" alt="UVU Africa" width="155" height="112" loading="lazy" decoding="async"></li>
+          <li class="logo-tile logo-tile--wasan"><img src="assets/img/global-wasan-network.webp" alt="Wasan Network" width="280" height="106" loading="lazy" decoding="async"></li>
+          <li class="logo-tile"><img src="assets/img/global-wings.webp" alt="WINGS" width="158" height="112" loading="lazy" decoding="async"></li>
         </ul>
       </div>
     </section>
@@ -1348,28 +1350,28 @@
           <article class="testimonial">
             <blockquote>“O Modelo Societal nos mostrou que a mudança sistêmica pode acontecer pela distribuição da capacidade de resolver problemas, em vez de depender de uma organização central. Isso mudou nossa visão de escala: de um trabalho de “formiguinha” para a construção de estruturas descentralizadas capazes de se multiplicar”.</blockquote>
             <footer>
-              <img class="depo-foto" src="/assets/img/depoimento-lennon-medeiros.webp" alt="Retrato de Lennon Medeiros, cofundador da Visão Coop" width="200" height="200" loading="lazy" decoding="async">
+              <img class="depo-foto" src="assets/img/depoimento-lennon-medeiros.webp" alt="Retrato de Lennon Medeiros, cofundador da Visão Coop" width="200" height="200" loading="lazy" decoding="async">
               <div class="who"><span class="name">Lennon Medeiros</span><span class="role">Cofundador | Visão Coop</span></div>
             </footer>
           </article>
           <article class="testimonial">
             <blockquote>“Percebemos que inovar nem sempre significa criar algo novo. Muitas vezes, significa fazer o que já existe funcionar melhor, junto. E talvez o aprendizado mais importante tenha sido este: não nos apaixonarmos tanto pelas nossas soluções a ponto de esquecer o problema que queremos resolver”.</blockquote>
             <footer>
-              <img class="depo-foto" src="/assets/img/depoimento-sabine-bolonhini.webp" alt="Retrato de Sabine Bolonhini, cofundadora da SAS Brasil" width="200" height="200" loading="lazy" decoding="async">
+              <img class="depo-foto" src="assets/img/depoimento-sabine-bolonhini.webp" alt="Retrato de Sabine Bolonhini, cofundadora da SAS Brasil" width="200" height="200" loading="lazy" decoding="async">
               <div class="who"><span class="name">Sabine Bolonhini</span><span class="role">Cofundadora | SAS Brasil</span></div>
             </footer>
           </article>
           <article class="testimonial">
             <blockquote>“A abordagem de crescimento exponencial do CMe é fundamental para ampliar capilaridade e impacto sem crescer a estrutura na mesma proporção”.</blockquote>
             <footer>
-              <img class="depo-foto" src="/assets/img/depoimento-fabiola-zerbini.webp" alt="Retrato de Fabíola Zerbini, diretora executiva da Conexsus" width="200" height="200" loading="lazy" decoding="async">
+              <img class="depo-foto" src="assets/img/depoimento-fabiola-zerbini.webp" alt="Retrato de Fabíola Zerbini, diretora executiva da Conexsus" width="200" height="200" loading="lazy" decoding="async">
               <div class="who"><span class="name">Fabíola Zerbini</span><span class="role">Diretora Executiva | Conexsus - Conexões Sustentáveis</span></div>
             </footer>
           </article>
           <article class="testimonial">
             <blockquote>“Além de nos apoiar a ampliar parcerias com atores-chave, essa jornada tem nos ajudado a construir uma atuação coordenada, capaz de acelerar processos, aprender com os erros, adaptar estratégias e produzir impacto sistêmico de forma coletiva”.</blockquote>
             <footer>
-              <img class="depo-foto" src="/assets/img/depoimento-ronaldo-matos.webp" alt="Retrato de Ronaldo Matos, diretor executivo do Desenrola E Não Me Enrola" width="200" height="200" loading="lazy" decoding="async">
+              <img class="depo-foto" src="assets/img/depoimento-ronaldo-matos.webp" alt="Retrato de Ronaldo Matos, diretor executivo do Desenrola E Não Me Enrola" width="200" height="200" loading="lazy" decoding="async">
               <div class="who"><span class="name">Ronaldo Matos</span><span class="role">Diretor Executivo | Desenrola E Não Me Enrola</span></div>
             </footer>
           </article>
@@ -1401,22 +1403,22 @@
 
         <ul class="equipe">
           <li>
-            <img src="/assets/img/equipe-fabio-tran.webp" alt="Retrato de Fabio Tran, diretor do CMe" width="224" height="224" loading="lazy" decoding="async">
+            <img src="assets/img/equipe-fabio-tran.webp" alt="Retrato de Fabio Tran, diretor do CMe" width="224" height="224" loading="lazy" decoding="async">
             <p class="equipe-nome">Fabio Tran</p>
             <p class="equipe-cargo">Diretor</p>
           </li>
           <li>
-            <img src="/assets/img/equipe-flavia-goulart.webp" alt="Retrato de Flávia Goulart Jesus Pinto, gerente de Redes e Parcerias do CMe" width="224" height="224" loading="lazy" decoding="async">
+            <img src="assets/img/equipe-flavia-goulart.webp" alt="Retrato de Flávia Goulart Jesus Pinto, gerente de Redes e Parcerias do CMe" width="224" height="224" loading="lazy" decoding="async">
             <p class="equipe-nome">Flávia Goulart Jesus Pinto</p>
             <p class="equipe-cargo">Gerente de Redes e Parcerias</p>
           </li>
           <li>
-            <img src="/assets/img/equipe-inara-velasco.webp" alt="Retrato de Inara Arruda Velasco, analista do CMe" width="224" height="224" loading="lazy" decoding="async">
+            <img src="assets/img/equipe-inara-velasco.webp" alt="Retrato de Inara Arruda Velasco, analista do CMe" width="224" height="224" loading="lazy" decoding="async">
             <p class="equipe-nome">Inara Arruda Velasco</p>
             <p class="equipe-cargo">Analista</p>
           </li>
           <li>
-            <img src="/assets/img/equipe-robert-parkinson.webp" alt="Retrato de Robert Parkinson, PMO do CMe" width="224" height="224" loading="lazy" decoding="async">
+            <img src="assets/img/equipe-robert-parkinson.webp" alt="Retrato de Robert Parkinson, PMO do CMe" width="224" height="224" loading="lazy" decoding="async">
             <p class="equipe-nome">Robert Parkinson</p>
             <p class="equipe-cargo">PMO</p>
           </li>
@@ -1483,11 +1485,11 @@
         <!-- Marcas: CMe como principal e, ao lado, o Instituto Beja com a chancela de cofundador global -->
         <div class="footer-marcas">
           <a class="brand footer-brand" href="#inicio" aria-label="Centro para Mudanças Exponenciais — voltar ao início">
-            <img src="/assets/img/logo-centro-para-mudancas-exponenciais.webp" alt="Centro para Mudanças Exponenciais" width="400" height="74" loading="lazy" decoding="async">
+            <img src="assets/img/logo-centro-para-mudancas-exponenciais.webp" alt="Centro para Mudanças Exponenciais" width="400" height="74" loading="lazy" decoding="async">
           </a>
           <div class="footer-cofundador">
             <span>Cofundador Global</span>
-            <img src="/assets/img/logo-instituto-beja.webp" alt="Instituto Beja" width="400" height="91" loading="lazy" decoding="async">
+            <img src="assets/img/logo-instituto-beja.webp" alt="Instituto Beja" width="400" height="91" loading="lazy" decoding="async">
           </div>
         </div>
 
