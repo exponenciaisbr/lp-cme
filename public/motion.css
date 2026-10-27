@@ -3,17 +3,10 @@
 .hero::before {
   content: ""; position: absolute; inset: -18%; pointer-events: none;
   background:
-    radial-gradient(ellipse at 78% 25%, rgba(62,200,180,.38), transparent 38%),
-    radial-gradient(ellipse at 22% 38%, rgba(249,169,148,.35), transparent 42%);
+    radial-gradient(ellipse at 78% 25%, rgba(244,135,108,.25), transparent 38%),
+    radial-gradient(ellipse at 22% 30%, rgba(21,193,245,.22), transparent 42%);
 }
-.hero-art {
-  position: absolute; width: min(78%, 1000px); height: auto;
-  right: -3%; bottom: 2%; opacity: .48; pointer-events: none;
-}
-.hero-art circle, .curve circle { transform-box: fill-box; transform-origin: center; }
-@media (max-width: 639px) {
-  .hero-art { width: 100%; right: -22%; bottom: 0; opacity: .3; }
-}
+.curve circle { transform-box: fill-box; transform-origin: center; }
 
 @media (prefers-reduced-motion: no-preference) {
   .hero::before {
@@ -21,20 +14,6 @@
     translate: var(--pointer-x, 0px) var(--pointer-y, 0px);
     transition: translate .8s var(--motion-ease);
   }
-  .hero-art {
-    translate: calc(var(--pointer-x, 0px) * -.4) calc(var(--pointer-y, 0px) * -.4);
-    transition: translate 1s var(--motion-ease);
-  }
-  .hero-orbit { animation: curve-draw 2.2s .25s var(--motion-ease) both; }
-  .hero-art circle { animation: dot-enter .9s var(--motion-ease) both; }
-  .hero-art circle:nth-child(1) { animation-delay: .35s; }
-  .hero-art circle:nth-child(2) { animation-delay: .45s; }
-  .hero-art circle:nth-child(3) { animation-delay: .55s; }
-  .hero-art circle:nth-child(4) { animation-delay: .65s; }
-  .hero-art circle:nth-child(5) { animation-delay: .75s; }
-  .hero-art circle:nth-child(6) { animation-delay: .85s; }
-  .hero-art circle:nth-child(7) { animation-delay: .95s; }
-  .hero-art circle:nth-child(8) { animation-delay: 1.05s; }
 
   .nav-list a, .nav-toggle, .footer-list a {
     transition: background-color .25s ease, color .25s ease, border-color .25s ease;
